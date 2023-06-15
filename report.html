@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Report</title>
+        <link rel="stylesheet" href="/static/New.css">
+        <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+        <script async
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBdlGwiDrx6NIo_lb0g8oLbTPKl1fr1C90&libraries=places"></script>
+    </head>
+    <body>
+        <h1>Report</h1>
+        <rect class = "rect rect-report">
+            <div class = "report">
+                <p>Destination:</p>
+                <p class = "report report-subheading" id = "origin" style="text-align:center;"></p>
+                <h2 style="text-align: center">&darr;</h2>
+                <p class = "report report-subheading" id = "des" style="text-align:center;"></p>
+                <p class = "report report-subheading" id="route"></p>
+                <p>Duration:</p>
+                <p class = "report report-subheading" id="duration"></p>
+                <p>Markers:</p>
+                <p class = "report report-subheading" id="markers"></p>
+            </div>
+        </rect>
+        <div hidden id="chart_div" class="map chart-report"></div>
+        <div id="map" class="map map-report"></div>
+        <a href="{{url_for('home')}}" class="btn btn-home">Home</a>
+        <form id = "upload" >
+            <a id="csvButton" href = "/uploadtocsvdb" class="btn btn-upload">UploadCSV</a>
+        </form>
+        <button onclick="displayChart()" class="btn btn-chart">Show Chart</button>
+
+    </body>
+    <script>
+        google.charts.load('current', {'packages':['corechart']});
+        google.charts.setOnLoadCallback(drawChart);
+
+        let origin = sessionStorage.getItem("origin");
+        let destination = sessionStorage.getItem("destination");
+        let roadroute = sessionStorage.getItem("route");
+        let duration = sessionStorage.getItem("duration");
+        let markers = JSON.parse(sessionStorage.getItem("marker"));
+        let alternative = JSON.parse(sessionStorage.getItem("alternative"));
+        console.log(alternative)
+
+        if (sessionStorage.getItem("duration") === null) {
+            console.log("duration")
+        }
+        window.onload = function () { 
+            myFunction()
+            initMap()
+            hideCSVButton()
+        };
+
+        function myFunction() {
+            document.getElementById("origin").innerHTML = origin;
+            document.getElementById("des").innerHTML = destination;
+            console.log(origin)
+            console.log(destination)
+            if (roadroute == null) {
+                document.getElementById("roadroute").innerHTML = "No route found";
+                document.getElementById("duration").innerHTML = "No timing";
+                
+                if (markers != null) {
+                    var x = markers[0].address
+                    for (i = 1; i < markers.length; i++) {
+                        x = x + markers[i].address
+                    }
+                    document.getElementById('markers').innerHTML = x;
+                }
+                else {
+                    document.getElementById('markers').innerHTML = "No Incidents Added";
+                }
+            } else {
+                if (alternative != null) {
+                    var x = alternative[0]
+                    for (i = 1; i < alternative.length; i++) {
+                        x = x + ", " + alternative[i]
+                    }
+                    document.getElementById("route").innerHTML = "Fastest Route of travel:<br> " + roadroute + "<br><br>Alternative routes:<br>" + x;
+                }
+                else {
+                    document.getElementById("route").innerHTML = "Fastest Route of travel:<br> " + roadroute;
+                }
+
+                document.getElementById("duration").innerHTML = duration;
+                if (markers != null) {
+                    if (markers.length == 1) {
+                        var x = markers[0].address
+                        document.getElementById('markers').innerHTML = x;
+                    } else {
+                        var x = ""
+                        for (i = 0; i < markers.length; i++) {
+                            x += markers[i].address + "<br>";
+                        }
+                        document.getElementById('markers').innerHTML = x;
+                    }
+                }
+                else {
+                    document.getElementById('markers').innerHTML = "No Incidents Added";
+                }
+            }
+        }
+        function initMap() {
+            // Initialize map and directions service/renderer
+            //changed
+            map = new google.maps.Map(document.getElementById("map"), {
+            center: { lat: 1.3291, lng: 103.7762 },
+            zoom: 15,
+            minZoom: 12,
+            maxZoom: 18,
+            restriction: {
+                latLngBounds: {
+                north: 1.52,
+                south: 1.23,
+                west: 103.6,
+                east: 104,
+                },
+            },
+            });
+
+            directionsService = new google.maps.DirectionsService();
+            directionsRenderer = new google.maps.DirectionsRenderer();
+            directionsRenderer.setMap(map);
+            calculateAndDisplayRoute();
+        }
+
+        function calculateAndDisplayRoute(marker) {
+            if (!origin || !destination) {
+            return;
+            }
+
+            var request = {
+            origin: origin,
+            destination: destination,
+            travelMode: google.maps.TravelMode.DRIVING,
+            provideRouteAlternatives: true,
+            };
+
+            directionsService.route(request, function (response, status) 
+            {
+            if (status === "OK") 
+            {
+                directionsRenderer.setDirections(response);
+
+                var routes = response.routes;
+                var roads = [];
+                //added
+                var alternative = [];
+                var road_details = [];
+                var add = 0
+                if (!marker) 
+                {
+                    for (var i = 0; i < routes.length; i++) {
+                        var route = routes[i];
+                        var routeSummary = route.summary;
+                        var routeDuration = route.legs[0].duration.text;
+                        var routeLength = route.legs[0].distance.text;
+                        roads.push(routeSummary);
+                        var rd = '"' + routeLength + ' - ' + routeDuration + '"';
+                        road_details.push(rd);
+                        //added
+                        if (i == 0) {
+                        sessionStorage.setItem("route", routeSummary)
+                        sessionStorage.setItem("duration", routeDuration)
+                        }
+                        else {
+                        alternative.push(routeSummary)
+                        }
+
+                        document.getElementById("route").value = roads
+                        document.getElementById("roadDetail").value = road_details
+                        //added
+                        sessionStorage.setItem("alternative", JSON.stringify(alternative))
+                    }
+                }
+                else if (marker != null) 
+                {
+                    for (var i = 0; i < routes.length; i++) 
+                    {
+                        var route = routes[i];
+                        var routeSummary = route.summary;
+                        var routeDuration = route.legs[0].duration.text;
+                        var routeLength = route.legs[0].distance.text;
+                        roads.push(routeSummary);
+                        var rd = '"' + routeLength + ' - ' + routeDuration + '"';
+                        road_details.push(rd);
+                        var polyline = new google.maps.Polyline({
+                        path: route.overview_path
+                        });
+
+                        //added
+                        if (i == 0) {
+                        sessionStorage.setItem("route", routeSummary)
+                        sessionStorage.setItem("duration", routeDuration)
+                        }
+                        else {
+                        alternative.push(routeSummary)
+                        }
+
+                        totalInfluence = 0
+
+                        for (x = 0; x < marker.length; x++)
+                        {
+                        var myPosition = new google.maps.LatLng(marker[x].getPosition().lat(),
+                                            marker[x].getPosition().lng());
+                        if (google.maps.geometry.poly.isLocationOnEdge(myPosition, polyline, 0.0007))
+                        {
+                            totalInfluence += Math.round(roadtraffic[x])
+                        }
+                        }
+                        
+                        document.getElementById("route").value = roads
+                        document.getElementById("roadDetail").value = road_details
+                        //added
+                        sessionStorage.setItem("alternative", JSON.stringify(alternative))
+                    }
+                }
+            } else {
+                window.alert("Directions request failed due to " + status);
+            }
+            });
+        }
+
+        function drawChart() 
+        {
+            liTraffic = {{liTraffic | tojson}}
+            console.log(liTraffic)
+            traffic = liTraffic.map(function (x) { 
+                return parseFloat(x); 
+            });
+            route = {{liRoutes | tojson}}
+
+            var info=[];
+            var Header= ['Road', 'Traffic Volume'];
+            info.push(Header);
+            for (var i = 0; i < route.length; i++) {
+                var temp=[];
+                temp.push(route[i]);
+                temp.push(traffic[i]);
+
+                info.push(temp);
+            }
+            var data = google.visualization.arrayToDataTable(info);
+
+            var options = {
+                title: 'Traffic Volume of Roads',
+                hAxis: {title: 'Routes'},
+                vAxis: {title: 'Traffic Volume'},
+                legend: 'none'
+            };
+
+            var chart = new google.visualization.ColumnChart(document.getElementById('chart_div'));
+            chart.draw(data, options);
+        }
+
+        if (sessionStorage.getItem("duration") === null) {
+            console.log("duration")
+        }
+
+        function displayChart(){
+            var x = document.getElementById("map");
+            var y = document.getElementById("chart_div");
+            console.log(x.style.display);
+            if (x.style.display != "none") {
+            x.style.display = "none";
+            y.style.display = "flex";
+            } else {
+            x.style.display = "flex";
+            y.style.display = "none";
+            }
+        }
+
+        function hideCSVButton(){
+            roles = "{{roles}}"
+            var csvButton = document.getElementById("csvButton")
+            if (roles === 'power'){
+                csvButton.style.display = 'block';
+            } else {
+                csvButton.style.display = 'none';
+            }
+        }
+
+    </script>
+</html>

@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Profile Page</title>
+  <link rel="stylesheet" href="/static/New.css">
+</head>
+<body>
+  <h1 style="text-align:center;">Profile Page</h1>
+  <div class="change-container">
+    <div id="changeinputs">
+      <p>Username: {{name}}</p>
+
+      <form method="post" action="./change_password">
+        <input type="submit" name="change_password" value="Change My Password">
+      </form>
+      <br><br>
+      <table id="userDetails">
+      </table>
+
+      <br>
+    
+      <form method='post' id='edit-user-form'>
+          <button type='submit' name='submit' id='edit-user-btn'>Edit User</button>
+      </form>
+
+
+      <div id='edit-user-popup' class='popup'>
+      <form method="post" id="edit-details-form" onsubmit='return validateForm()' action="./update_user" >
+          <h2>Edit User</h2>
+          <div>User ID: 
+            <input type="text" name="edit-user-id" id="edit-user-id">
+            </div>
+          <div>
+            <label for="edit-user-name">New Username:</label>
+            <input type="text" name="edit-user-name" id="edit-user-name">
+          </div>
+          <div>
+            <label for="edit-user-email">New Email:</label>
+            <input type="email" name="edit-user-email" id="edit-user-email">
+          </div>
+          <div>
+            <label for="edit-user-roles">New Role:</label>
+            <select class="form-select" name="edit-user-roles" id="edit-user-roles">
+                <option value="public">Public user</option>
+                <option value="power">Power user</option>
+                <option value="admin">Admin</option>
+            </select>
+          </div>
+          <div>
+            <button type="submit" name="submit">Save Changes</button>
+            <button type="button" id='close-pop-up' onclick="closePopup()">Cancel</button>
+          </div>
+        </form>
+      </div>
+
+      <br>
+      <br>
+      <button><a href="./home">Go Back</a></button>
+      <button><a href="./logout">Log Out</a></button>
+    </div>
+  </div>
+</body>
+<style>
+  .popup {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 300px;
+    padding: 20px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    z-index: 9999;
+  }
+</style>
+<script>
+  const button = document.querySelector('#edit-user-btn');
+  const popup = document.querySelector('#edit-user-popup');
+  const table = document.querySelector("#userDetails");
+  const editButton = document.querySelector("#edit-user-form");
+
+  function closePopup(){
+    popup.style.display = 'none';
+  }
+
+  button.addEventListener('click', (e) => {
+    e.preventDefault();
+    popup.style.display = 'block';
+  });
+
+  function hideTable(){
+    //var t = document.getElementById('#userDetails');
+    roles = "{{role}}"
+    console.log(roles)
+    if (roles === 'admin'){
+        table.style.display = 'block';
+        editButton.style.display = 'block';
+    } else {
+        table.style.display = 'none';
+        editButton.style.display = 'none';
+    }
+  }
+  
+  function showUserDetails() {
+        id_all = {{id_all | tojson}}
+        user_all = {{user_all | tojson}}
+        email_all = {{email_all | tojson}}
+        roles_all = {{roles_all | tojson}}
+
+        console.log(id_all);
+        console.log(user_all);
+        console.log(email_all);
+        console.log(roles_all);
+
+        // Create the header row and cells if they don't exist
+        if (!table.querySelector("thead tr")) {
+            const headerRow = document.createElement("tr");
+
+            // Create the headers for each column
+            const idHeader = document.createElement("th");
+            idHeader.textContent = "ID";
+            const usernameHeader = document.createElement("th");
+            usernameHeader.textContent = "Username";
+            const emailHeader = document.createElement("th");
+            emailHeader.textContent = "Email";
+            const rolesHeader = document.createElement("th");
+            rolesHeader.textContent = "Roles";
+
+            // Append the headers to the row
+            headerRow.appendChild(idHeader);
+            headerRow.appendChild(usernameHeader);
+            headerRow.appendChild(emailHeader);
+            headerRow.appendChild(rolesHeader);
+
+            console.log(headerRow)
+            // Create the thead element and append the header row to it
+            const thead = document.createElement("thead");
+            thead.appendChild(headerRow);
+
+            // Append the thead element to the table
+            table.appendChild(thead);
+
+            // Create a tbody element if it doesn't exist
+            let tbody = table.querySelector("tbody");
+            if (!tbody) {
+                tbody = document.createElement("tbody");
+                table.appendChild(tbody);
+            }
+
+            // Loop over the data and create a row for each item
+            for (let i = 0; i < id_all.length; i++) {
+                // Create the row element
+                const row = document.createElement("tr");
+
+                // Create the cells for each column and populate them with data
+                const idCell = document.createElement("td");
+                idCell.textContent = id_all[i];
+                const usernameCell = document.createElement("td");
+                usernameCell.textContent = user_all[i];
+                const emailCell = document.createElement("td");
+                emailCell.textContent = email_all[i];
+                const rolesCell = document.createElement("td");
+                rolesCell.textContent = roles_all[i];
+
+                // Append the cells to the row
+                row.appendChild(idCell);
+                row.appendChild(usernameCell);
+                row.appendChild(emailCell);
+                row.appendChild(rolesCell);
+
+                console.log(row)
+                // Append the row to the tbody
+                tbody.appendChild(row);
+                
+                }
+            
+                // for edit user form
+                const selectElement = document.getElementById("edit-user-id");
+        }
+    }
+
+    function validateForm() {
+      const userid = document.getElementById("edit-user-id").value;
+      const username = document.getElementById("edit-user-name").value;
+      const email = document.getElementById("edit-user-email").value;
+      const roles = document.getElementById("edit-user-roles").value;
+      
+      if (!userid || !username || !email || !roles) {
+        alert("All fields are required!");
+        return false;
+      }
+      
+      return true;
+    }
+
+
+    window.addEventListener("load", hideTable)
+    window.addEventListener("load", showUserDetails);
+
+</script>
+</html>

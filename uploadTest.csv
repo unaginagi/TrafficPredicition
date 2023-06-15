@@ -1,0 +1,662 @@
+﻿Time_of_Day,Value_of_Time_of_Day,Day_of_Week,Weather_Condition,Road_Name,Road_Type,Incident,Traffic_Volume
+06:00,6,Sunday,Rainy,ADAM ROAD,CAT2,None,1478
+07:00,7,Sunday,Clear,ADAM ROAD,CAT2,None,1345
+08:00,8,Sunday,Rainy,ADAM ROAD,CAT2,Road Block,1352
+09:00,9,Sunday,Foggy,ADAM ROAD,CAT2,None,1352
+10:00,10,Sunday,Clear,ADAM ROAD,CAT2,None,1330
+11:00,11,Sunday,Clear,ADAM ROAD,CAT2,Misc.,1275
+12:00,12,Sunday,Rainy,ADAM ROAD,CAT2,None,1283
+13:00,13,Sunday,Foggy,ADAM ROAD,CAT2,None,1416
+14:00,14,Sunday,Rainy,ADAM ROAD,CAT2,Obstacle,1423
+15:00,15,Sunday,Clear,ADAM ROAD,CAT2,None,1410
+16:00,16,Sunday,Clear,ADAM ROAD,CAT2,None,1491
+17:00,17,Sunday,Clear,ADAM ROAD,CAT2,None,1558
+18:00,18,Sunday,Clear,ADAM ROAD,CAT2,None,1838
+19:00,19,Sunday,Clear,ADAM ROAD,CAT2,None,1524
+20:00,20,Sunday,Clear,ADAM ROAD,CAT2,None,1225
+21:00,21,Sunday,Clear,ADAM ROAD,CAT2,Misc.,1280
+22:00,22,Sunday,Clear,ADAM ROAD,CAT2,None,1253
+23:00,23,Sunday,Clear,ADAM ROAD,CAT2,None,1061
+00:00,0,Monday,Clear,ADAM ROAD,CAT2,None,648
+01:00,1,Monday,Clear,ADAM ROAD,CAT2,None,542
+02:00,2,Monday,Clear,ADAM ROAD,CAT2,None,740
+03:00,3,Monday,Clear,ADAM ROAD,CAT2,Road Block,737
+04:00,4,Monday,Clear,ADAM ROAD,CAT2,None,312
+05:00,5,Monday,Clear,ADAM ROAD,CAT2,None,391
+06:00,6,Monday,Clear,ADAM ROAD,CAT2,None,925
+07:00,7,Monday,Rainy,ADAM ROAD,CAT2,None,1025
+08:00,8,Monday,Clear,ADAM ROAD,CAT2,None,1175
+09:00,9,Monday,Foggy,ADAM ROAD,CAT2,None,1456
+10:00,10,Monday,Rainy,ADAM ROAD,CAT2,Vehicle Breakdown,1213
+11:00,11,Monday,Clear,ADAM ROAD,CAT2,Vehicle Breakdown,1575
+12:00,12,Monday,Clear,ADAM ROAD,CAT2,None,1571
+13:00,13,Monday,Clear,ADAM ROAD,CAT2,None,1412
+14:00,14,Monday,Clear,ADAM ROAD,CAT2,None,1374
+15:00,15,Monday,Clear,ADAM ROAD,CAT2,None,1555
+16:00,16,Monday,Clear,ADAM ROAD,CAT2,None,1411
+17:00,17,Monday,Clear,ADAM ROAD,CAT2,None,1472
+18:00,18,Monday,Clear,ADAM ROAD,CAT2,None,1651
+19:00,19,Monday,Clear,ADAM ROAD,CAT2,None,1250
+20:00,20,Monday,Clear,ADAM ROAD,CAT2,None,1599
+21:00,21,Monday,Foggy,ADAM ROAD,CAT2,None,1340
+22:00,22,Monday,Clear,ADAM ROAD,CAT2,Unattended Vehicle,1057
+23:00,23,Monday,Clear,ADAM ROAD,CAT2,None,789
+00:00,0,Tuesday,Clear,ADAM ROAD,CAT2,None,688
+01:00,1,Tuesday,Clear,ADAM ROAD,CAT2,None,911
+02:00,2,Tuesday,Clear,ADAM ROAD,CAT2,None,279
+03:00,3,Tuesday,Clear,ADAM ROAD,CAT2,None,918
+04:00,4,Tuesday,Rainy,ADAM ROAD,CAT2,Diversion,578
+05:00,5,Tuesday,Foggy,ADAM ROAD,CAT2,None,947
+06:00,6,Tuesday,Foggy,ADAM ROAD,CAT2,Road Block,1125
+07:00,7,Tuesday,Rainy,ADAM ROAD,CAT2,None,1398
+08:00,8,Tuesday,Clear,ADAM ROAD,CAT2,None,1578
+09:00,9,Tuesday,Clear,ADAM ROAD,CAT2,Vehicle Breakdown,1409
+10:00,10,Tuesday,Clear,ADAM ROAD,CAT2,None,1379
+11:00,11,Tuesday,Clear,ADAM ROAD,CAT2,Obstacle,1471
+12:00,12,Tuesday,Clear,ADAM ROAD,CAT2,None,1126
+13:00,13,Tuesday,Rainy,ADAM ROAD,CAT2,None,1313
+14:00,14,Tuesday,Foggy,ADAM ROAD,CAT2,None,1459
+15:00,15,Tuesday,Rainy,ADAM ROAD,CAT2,None,1199
+16:00,16,Tuesday,Clear,ADAM ROAD,CAT2,None,1449
+17:00,17,Tuesday,Rainy,ADAM ROAD,CAT2,None,1342
+18:00,18,Tuesday,Clear,ADAM ROAD,CAT2,None,1415
+19:00,19,Tuesday,Clear,ADAM ROAD,CAT2,None,1463
+20:00,20,Tuesday,Clear,ADAM ROAD,CAT2,None,1343
+21:00,21,Tuesday,Foggy,ADAM ROAD,CAT2,None,1449
+22:00,22,Tuesday,Rainy,ADAM ROAD,CAT2,None,1124
+23:00,23,Tuesday,Clear,ADAM ROAD,CAT2,Road Works,1111
+00:00,0,Wednesday,Clear,ADAM ROAD,CAT2,None,804
+01:00,1,Wednesday,Clear,ADAM ROAD,CAT2,Misc.,902
+02:00,2,Wednesday,Foggy,ADAM ROAD,CAT2,None,294
+03:00,3,Wednesday,Foggy,ADAM ROAD,CAT2,Road Works,291
+04:00,4,Wednesday,Clear,ADAM ROAD,CAT2,None,708
+05:00,5,Wednesday,Rainy,ADAM ROAD,CAT2,Unattended Vehicle,351
+06:00,6,Wednesday,Clear,ADAM ROAD,CAT2,Misc.,979
+07:00,7,Wednesday,Clear,ADAM ROAD,CAT2,Accident,1231
+08:00,8,Wednesday,Clear,ADAM ROAD,CAT2,None,1292
+09:00,9,Wednesday,Clear,ADAM ROAD,CAT2,None,1328
+10:00,10,Wednesday,Clear,ADAM ROAD,CAT2,None,1648
+11:00,11,Wednesday,Clear,ADAM ROAD,CAT2,None,1539
+12:00,12,Wednesday,Rainy,ADAM ROAD,CAT2,None,1624
+13:00,13,Wednesday,Clear,ADAM ROAD,CAT2,Accident,1440
+14:00,14,Wednesday,Foggy,ADAM ROAD,CAT2,Diversion,1327
+15:00,15,Wednesday,Clear,ADAM ROAD,CAT2,None,1457
+16:00,16,Wednesday,Rainy,ADAM ROAD,CAT2,None,1645
+17:00,17,Wednesday,Clear,ADAM ROAD,CAT2,None,1882
+18:00,18,Wednesday,Clear,ADAM ROAD,CAT2,None,1407
+19:00,19,Wednesday,Clear,ADAM ROAD,CAT2,None,1379
+20:00,20,Wednesday,Foggy,ADAM ROAD,CAT2,None,1244
+21:00,21,Wednesday,Clear,ADAM ROAD,CAT2,None,1221
+22:00,22,Wednesday,Clear,ADAM ROAD,CAT2,None,1006
+23:00,23,Wednesday,Clear,ADAM ROAD,CAT2,None,708
+00:00,0,Thursday,Clear,ADAM ROAD,CAT2,Accident,859
+01:00,1,Thursday,Rainy,ADAM ROAD,CAT2,None,896
+02:00,2,Thursday,Clear,ADAM ROAD,CAT2,None,740
+03:00,3,Thursday,Clear,ADAM ROAD,CAT2,None,790
+04:00,4,Thursday,Clear,ADAM ROAD,CAT2,None,671
+05:00,5,Thursday,Clear,ADAM ROAD,CAT2,None,1014
+06:00,6,Thursday,Clear,ADAM ROAD,CAT2,None,1083
+07:00,7,Thursday,Clear,ADAM ROAD,CAT2,None,1437
+08:00,8,Thursday,Clear,ADAM ROAD,CAT2,None,1714
+09:00,9,Thursday,Clear,ADAM ROAD,CAT2,Diversion,1356
+10:00,10,Thursday,Foggy,ADAM ROAD,CAT2,None,1768
+11:00,11,Thursday,Clear,ADAM ROAD,CAT2,Misc.,1336
+12:00,12,Thursday,Clear,ADAM ROAD,CAT2,None,1485
+13:00,13,Thursday,Clear,ADAM ROAD,CAT2,Road Works,1520
+14:00,14,Thursday,Clear,ADAM ROAD,CAT2,None,1510
+15:00,15,Thursday,Clear,ADAM ROAD,CAT2,None,1323
+16:00,16,Thursday,Foggy,ADAM ROAD,CAT2,Heavy Traffic,1418
+17:00,17,Thursday,Clear,ADAM ROAD,CAT2,None,1576
+18:00,18,Thursday,Clear,ADAM ROAD,CAT2,None,1595
+19:00,19,Thursday,Clear,ADAM ROAD,CAT2,None,1527
+20:00,20,Thursday,Clear,ADAM ROAD,CAT2,Diversion,1650
+21:00,21,Thursday,Foggy,ADAM ROAD,CAT2,None,1139
+22:00,22,Thursday,Clear,ADAM ROAD,CAT2,None,1279
+23:00,23,Thursday,Rainy,ADAM ROAD,CAT2,None,976
+00:00,0,Friday,Clear,ADAM ROAD,CAT2,None,812
+01:00,1,Friday,Clear,ADAM ROAD,CAT2,None,542
+02:00,2,Friday,Clear,ADAM ROAD,CAT2,None,427
+03:00,3,Friday,Clear,ADAM ROAD,CAT2,None,197
+04:00,4,Friday,Clear,ADAM ROAD,CAT2,Accident,869
+05:00,5,Friday,Foggy,ADAM ROAD,CAT2,Heavy Traffic,808
+06:00,6,Friday,Clear,ADAM ROAD,CAT2,None,879
+07:00,7,Friday,Clear,ADAM ROAD,CAT2,None,969
+08:00,8,Friday,Clear,ADAM ROAD,CAT2,Unattended Vehicle,1152
+09:00,9,Friday,Clear,ADAM ROAD,CAT2,Obstacle,1124
+10:00,10,Friday,Clear,ADAM ROAD,CAT2,Diversion,1223
+11:00,11,Friday,Clear,ADAM ROAD,CAT2,None,1368
+12:00,12,Friday,Clear,ADAM ROAD,CAT2,None,1328
+13:00,13,Friday,Clear,ADAM ROAD,CAT2,None,1154
+14:00,14,Friday,Clear,ADAM ROAD,CAT2,None,1474
+15:00,15,Friday,Rainy,ADAM ROAD,CAT2,None,1325
+16:00,16,Friday,Clear,ADAM ROAD,CAT2,None,1282
+17:00,17,Friday,Clear,ADAM ROAD,CAT2,Road Works,1467
+18:00,18,Friday,Clear,ADAM ROAD,CAT2,None,1577
+19:00,19,Friday,Foggy,ADAM ROAD,CAT2,Vehicle Breakdown,1167
+20:00,20,Friday,Foggy,ADAM ROAD,CAT2,None,1531
+21:00,21,Friday,Clear,ADAM ROAD,CAT2,None,1158
+22:00,22,Friday,Clear,ADAM ROAD,CAT2,None,1100
+23:00,23,Friday,Clear,ADAM ROAD,CAT2,None,915
+00:00,0,Saturday,Clear,ADAM ROAD,CAT2,Obstacle,468
+01:00,1,Saturday,Clear,ADAM ROAD,CAT2,None,134
+02:00,2,Saturday,Clear,ADAM ROAD,CAT2,Vehicle Breakdown,686
+03:00,3,Saturday,Foggy,ADAM ROAD,CAT2,Road Block,936
+04:00,4,Saturday,Clear,ADAM ROAD,CAT2,None,478
+05:00,5,Saturday,Foggy,ADAM ROAD,CAT2,None,964
+06:00,6,Saturday,Foggy,ADAM ROAD,CAT2,None,1209
+07:00,7,Saturday,Rainy,ADAM ROAD,CAT2,None,1152
+08:00,8,Saturday,Foggy,ADAM ROAD,CAT2,None,1601
+09:00,9,Saturday,Rainy,ADAM ROAD,CAT2,None,1236
+10:00,10,Saturday,Clear,ADAM ROAD,CAT2,None,1337
+11:00,11,Saturday,Foggy,ADAM ROAD,CAT2,None,1487
+12:00,12,Saturday,Clear,ADAM ROAD,CAT2,None,1587
+13:00,13,Saturday,Clear,ADAM ROAD,CAT2,None,1129
+14:00,14,Saturday,Foggy,ADAM ROAD,CAT2,None,1507
+15:00,15,Saturday,Clear,ADAM ROAD,CAT2,None,1491
+16:00,16,Saturday,Rainy,ADAM ROAD,CAT2,Road Block,1418
+17:00,17,Saturday,Clear,ADAM ROAD,CAT2,None,1322
+18:00,18,Saturday,Rainy,ADAM ROAD,CAT2,Unattended Vehicle,1500
+19:00,19,Saturday,Clear,ADAM ROAD,CAT2,None,1572
+20:00,20,Saturday,Clear,ADAM ROAD,CAT2,None,1386
+21:00,21,Saturday,Clear,ADAM ROAD,CAT2,Unattended Vehicle,1022
+22:00,22,Saturday,Clear,ADAM ROAD,CAT2,None,970
+23:00,23,Saturday,Clear,ADAM ROAD,CAT2,None,696
+00:00,0,Sunday,Clear,ADAM ROAD,CAT2,None,356
+01:00,1,Sunday,Clear,ADAM ROAD,CAT2,None,417
+02:00,2,Sunday,Clear,ADAM ROAD,CAT2,Obstacle,140
+03:00,3,Sunday,Foggy,ADAM ROAD,CAT2,Heavy Traffic,480
+04:00,4,Sunday,Foggy,ADAM ROAD,CAT2,None,215
+05:00,5,Sunday,Clear,ADAM ROAD,CAT2,None,817
+06:00,6,Sunday,Clear,ADAM ROAD,CAT2,Accident,902
+07:00,7,Sunday,Clear,ADAM ROAD,CAT2,None,1210
+08:00,8,Sunday,Clear,ADAM ROAD,CAT2,None,1244
+09:00,9,Sunday,Clear,ADAM ROAD,CAT2,Heavy Traffic,1555
+10:00,10,Sunday,Clear,ADAM ROAD,CAT2,None,1610
+11:00,11,Sunday,Clear,ADAM ROAD,CAT2,Road Works,1506
+12:00,12,Sunday,Clear,ADAM ROAD,CAT2,None,1405
+13:00,13,Sunday,Clear,ADAM ROAD,CAT2,None,1388
+14:00,14,Sunday,Clear,ADAM ROAD,CAT2,None,994
+15:00,15,Sunday,Clear,ADAM ROAD,CAT2,None,1169
+16:00,16,Sunday,Clear,ADAM ROAD,CAT2,None,1293
+17:00,17,Sunday,Foggy,ADAM ROAD,CAT2,None,1277
+18:00,18,Sunday,Foggy,ADAM ROAD,CAT2,None,1234
+19:00,19,Sunday,Clear,ADAM ROAD,CAT2,None,1298
+20:00,20,Sunday,Clear,ADAM ROAD,CAT2,None,1262
+21:00,21,Sunday,Clear,ADAM ROAD,CAT2,Road Works,1148
+22:00,22,Sunday,Clear,ADAM ROAD,CAT2,Road Block,1073
+23:00,23,Sunday,Clear,ADAM ROAD,CAT2,None,799
+00:00,0,Monday,Clear,ADAM ROAD,CAT2,None,792
+01:00,1,Monday,Clear,ADAM ROAD,CAT2,Unattended Vehicle,523
+02:00,2,Monday,Foggy,ADAM ROAD,CAT2,Misc.,885
+03:00,3,Monday,Clear,ADAM ROAD,CAT2,None,919
+04:00,4,Monday,Clear,ADAM ROAD,CAT2,None,356
+05:00,5,Monday,Clear,ADAM ROAD,CAT2,Misc.,923
+06:00,6,Monday,Foggy,ADAM ROAD,CAT2,Heavy Traffic,1059
+07:00,7,Monday,Clear,ADAM ROAD,CAT2,None,1299
+08:00,8,Monday,Foggy,ADAM ROAD,CAT2,None,1680
+09:00,9,Monday,Clear,ADAM ROAD,CAT2,Accident,1329
+10:00,10,Monday,Clear,ADAM ROAD,CAT2,Road Block,1668
+11:00,11,Monday,Clear,ADAM ROAD,CAT2,Unattended Vehicle,1526
+12:00,12,Monday,Clear,ADAM ROAD,CAT2,None,1527
+13:00,13,Monday,Clear,ADAM ROAD,CAT2,None,1555
+14:00,14,Monday,Foggy,ADAM ROAD,CAT2,None,1502
+15:00,15,Monday,Clear,ADAM ROAD,CAT2,None,1498
+16:00,16,Monday,Clear,ADAM ROAD,CAT2,None,1415
+17:00,17,Monday,Clear,ADAM ROAD,CAT2,Diversion,1479
+18:00,18,Monday,Clear,ADAM ROAD,CAT2,None,1350
+19:00,19,Monday,Clear,ADAM ROAD,CAT2,None,1569
+20:00,20,Monday,Clear,ADAM ROAD,CAT2,None,1125
+21:00,21,Monday,Foggy,ADAM ROAD,CAT2,None,1138
+22:00,22,Monday,Rainy,ADAM ROAD,CAT2,None,1291
+23:00,23,Monday,Clear,ADAM ROAD,CAT2,None,786
+00:00,0,Tuesday,Clear,ADAM ROAD,CAT2,None,504
+01:00,1,Tuesday,Foggy,ADAM ROAD,CAT2,None,424
+02:00,2,Tuesday,Rainy,ADAM ROAD,CAT2,None,439
+03:00,3,Tuesday,Foggy,ADAM ROAD,CAT2,Obstacle,258
+04:00,4,Tuesday,Clear,ADAM ROAD,CAT2,None,311
+05:00,5,Tuesday,Clear,ADAM ROAD,CAT2,None,787
+06:00,6,Tuesday,Clear,ADAM ROAD,CAT2,None,909
+07:00,7,Tuesday,Clear,ADAM ROAD,CAT2,None,1316
+08:00,8,Tuesday,Clear,ADAM ROAD,CAT2,Diversion,1244
+09:00,9,Tuesday,Clear,ADAM ROAD,CAT2,None,1386
+10:00,10,Tuesday,Clear,ADAM ROAD,CAT2,None,1741
+11:00,11,Tuesday,Clear,ADAM ROAD,CAT2,Road Works,1308
+12:00,12,Tuesday,Clear,ADAM ROAD,CAT2,None,1416
+13:00,13,Tuesday,Clear,ADAM ROAD,CAT2,None,1285
+14:00,14,Tuesday,Clear,ADAM ROAD,CAT2,None,1085
+15:00,15,Tuesday,Clear,ADAM ROAD,CAT2,None,1200
+16:00,16,Tuesday,Clear,ADAM ROAD,CAT2,Obstacle,1424
+17:00,17,Tuesday,Clear,ADAM ROAD,CAT2,None,1361
+18:00,18,Tuesday,Clear,ADAM ROAD,CAT2,Accident,1301
+19:00,19,Tuesday,Rainy,ADAM ROAD,CAT2,Road Block,1214
+20:00,20,Tuesday,Clear,ADAM ROAD,CAT2,Heavy Traffic,1515
+21:00,21,Tuesday,Clear,ADAM ROAD,CAT2,Obstacle,1504
+22:00,22,Tuesday,Clear,ADAM ROAD,CAT2,None,1145
+23:00,23,Tuesday,Foggy,ADAM ROAD,CAT2,Misc.,971
+00:00,0,Wednesday,Rainy,ADAM ROAD,CAT2,None,736
+01:00,1,Wednesday,Clear,ADAM ROAD,CAT2,Road Works,802
+02:00,2,Wednesday,Clear,ADAM ROAD,CAT2,None,248
+03:00,3,Wednesday,Clear,ADAM ROAD,CAT2,None,486
+04:00,4,Wednesday,Rainy,ADAM ROAD,CAT2,None,979
+05:00,5,Wednesday,Clear,ADAM ROAD,CAT2,None,1004
+06:00,6,Wednesday,Rainy,ADAM ROAD,CAT2,Road Block,1054
+07:00,7,Wednesday,Clear,ADAM ROAD,CAT2,None,1591
+08:00,8,Wednesday,Clear,ADAM ROAD,CAT2,Vehicle Breakdown,1224
+09:00,9,Wednesday,Clear,ADAM ROAD,CAT2,None,1625
+10:00,10,Wednesday,Clear,ADAM ROAD,CAT2,None,1322
+11:00,11,Wednesday,Clear,ADAM ROAD,CAT2,Obstacle,1337
+12:00,12,Wednesday,Clear,ADAM ROAD,CAT2,None,1432
+13:00,13,Wednesday,Clear,ADAM ROAD,CAT2,Road Block,1476
+14:00,14,Wednesday,Clear,ADAM ROAD,CAT2,None,1059
+15:00,15,Wednesday,Clear,ADAM ROAD,CAT2,Vehicle Breakdown,1170
+16:00,16,Wednesday,Clear,ADAM ROAD,CAT2,None,1498
+17:00,17,Wednesday,Rainy,ADAM ROAD,CAT2,Road Works,1389
+18:00,18,Wednesday,Clear,ADAM ROAD,CAT2,None,1612
+19:00,19,Wednesday,Clear,ADAM ROAD,CAT2,None,2031
+20:00,20,Wednesday,Clear,ADAM ROAD,CAT2,None,1173
+21:00,21,Wednesday,Clear,ADAM ROAD,CAT2,None,1154
+22:00,22,Wednesday,Clear,ADAM ROAD,CAT2,Heavy Traffic,1137
+23:00,23,Wednesday,Foggy,ADAM ROAD,CAT2,Road Block,841
+00:00,0,Thursday,Clear,ADAM ROAD,CAT2,None,870
+01:00,1,Thursday,Clear,ADAM ROAD,CAT2,None,441
+02:00,2,Thursday,Rainy,ADAM ROAD,CAT2,Accident,460
+03:00,3,Thursday,Rainy,ADAM ROAD,CAT2,None,821
+04:00,4,Thursday,Clear,ADAM ROAD,CAT2,None,637
+05:00,5,Thursday,Clear,ADAM ROAD,CAT2,None,906
+06:00,6,Thursday,Clear,ADAM ROAD,CAT2,Obstacle,979
+07:00,7,Thursday,Clear,ADAM ROAD,CAT2,None,1114
+08:00,8,Thursday,Clear,ADAM ROAD,CAT2,Vehicle Breakdown,1129
+09:00,9,Thursday,Clear,ADAM ROAD,CAT2,None,1721
+10:00,10,Thursday,Rainy,ADAM ROAD,CAT2,None,1535
+11:00,11,Thursday,Clear,ADAM ROAD,CAT2,None,1410
+12:00,12,Thursday,Clear,ADAM ROAD,CAT2,None,1457
+13:00,13,Thursday,Rainy,ADAM ROAD,CAT2,None,1591
+14:00,14,Thursday,Clear,ADAM ROAD,CAT2,None,1273
+15:00,15,Thursday,Rainy,ADAM ROAD,CAT2,None,1387
+16:00,16,Thursday,Clear,ADAM ROAD,CAT2,Road Works,1467
+17:00,17,Thursday,Clear,ADAM ROAD,CAT2,None,1717
+18:00,18,Thursday,Clear,ADAM ROAD,CAT2,None,1891
+19:00,19,Thursday,Clear,ADAM ROAD,CAT2,Vehicle Breakdown,1704
+20:00,20,Thursday,Clear,ADAM ROAD,CAT2,None,1621
+21:00,21,Thursday,Clear,ADAM ROAD,CAT2,Heavy Traffic,1208
+22:00,22,Thursday,Clear,ADAM ROAD,CAT2,None,1174
+23:00,23,Thursday,Clear,ADAM ROAD,CAT2,None,1003
+00:00,0,Friday,Clear,ADAM ROAD,CAT2,Heavy Traffic,863
+01:00,1,Friday,Clear,ADAM ROAD,CAT2,None,406
+02:00,2,Friday,Clear,ADAM ROAD,CAT2,None,534
+03:00,3,Friday,Clear,ADAM ROAD,CAT2,None,920
+04:00,4,Friday,Foggy,ADAM ROAD,CAT2,None,507
+05:00,5,Friday,Clear,ADAM ROAD,CAT2,None,537
+06:00,6,Friday,Clear,ADAM ROAD,CAT2,None,1022
+07:00,7,Friday,Clear,ADAM ROAD,CAT2,None,1359
+08:00,8,Friday,Clear,ADAM ROAD,CAT2,Diversion,1289
+09:00,9,Friday,Clear,ADAM ROAD,CAT2,Road Works,1396
+10:00,10,Friday,Clear,ADAM ROAD,CAT2,None,1387
+11:00,11,Friday,Clear,ADAM ROAD,CAT2,Diversion,1297
+12:00,12,Friday,Clear,ADAM ROAD,CAT2,Road Block,1425
+13:00,13,Friday,Clear,ADAM ROAD,CAT2,None,1152
+14:00,14,Friday,Clear,ADAM ROAD,CAT2,None,1405
+15:00,15,Friday,Foggy,ADAM ROAD,CAT2,Road Works,1385
+16:00,16,Friday,Rainy,ADAM ROAD,CAT2,None,1449
+17:00,17,Friday,Clear,ADAM ROAD,CAT2,None,1467
+18:00,18,Friday,Rainy,ADAM ROAD,CAT2,None,1686
+19:00,19,Friday,Clear,ADAM ROAD,CAT2,None,1420
+20:00,20,Friday,Clear,ADAM ROAD,CAT2,None,1291
+21:00,21,Friday,Clear,ADAM ROAD,CAT2,None,1172
+22:00,22,Friday,Clear,ADAM ROAD,CAT2,Obstacle,1022
+23:00,23,Friday,Clear,ADAM ROAD,CAT2,None,897
+00:00,0,Saturday,Rainy,ADAM ROAD,CAT2,Road Works,686
+01:00,1,Saturday,Clear,ADAM ROAD,CAT2,None,670
+02:00,2,Saturday,Clear,ADAM ROAD,CAT2,None,785
+03:00,3,Saturday,Clear,ADAM ROAD,CAT2,None,812
+04:00,4,Saturday,Clear,ADAM ROAD,CAT2,None,601
+05:00,5,Saturday,Clear,ADAM ROAD,CAT2,None,779
+06:00,6,Saturday,Foggy,ADAM ROAD,CAT2,Unattended Vehicle,895
+07:00,7,Saturday,Clear,ADAM ROAD,CAT2,None,963
+08:00,8,Saturday,Clear,ADAM ROAD,CAT2,Accident,1054
+09:00,9,Saturday,Clear,ADAM ROAD,CAT2,None,1137
+10:00,10,Saturday,Clear,ADAM ROAD,CAT2,None,1247
+11:00,11,Saturday,Clear,ADAM ROAD,CAT2,None,1398
+12:00,12,Saturday,Clear,ADAM ROAD,CAT2,None,1335
+13:00,13,Saturday,Clear,ADAM ROAD,CAT2,None,1281
+14:00,14,Saturday,Rainy,ADAM ROAD,CAT2,None,1235
+15:00,15,Saturday,Foggy,ADAM ROAD,CAT2,None,1383
+16:00,16,Saturday,Clear,ADAM ROAD,CAT2,None,1329
+17:00,17,Saturday,Clear,ADAM ROAD,CAT2,None,1183
+18:00,18,Saturday,Clear,ADAM ROAD,CAT2,None,1612
+19:00,19,Saturday,Clear,ADAM ROAD,CAT2,None,1359
+20:00,20,Saturday,Clear,ADAM ROAD,CAT2,None,1188
+21:00,21,Saturday,Clear,ADAM ROAD,CAT2,None,1119
+22:00,22,Saturday,Foggy,ADAM ROAD,CAT2,Unattended Vehicle,1255
+23:00,23,Saturday,Clear,ADAM ROAD,CAT2,None,977
+00:00,0,Sunday,Clear,ADAM ROAD,CAT2,None,808
+01:00,1,Sunday,Clear,ADAM ROAD,CAT2,Misc.,791
+02:00,2,Sunday,Clear,ADAM ROAD,CAT2,None,664
+03:00,3,Sunday,Foggy,ADAM ROAD,CAT2,None,964
+04:00,4,Sunday,Clear,ADAM ROAD,CAT2,Obstacle,762
+05:00,5,Sunday,Clear,ADAM ROAD,CAT2,Road Works,1052
+06:00,6,Sunday,Clear,ADAM ROAD,CAT2,None,1126
+07:00,7,Sunday,Clear,ADAM ROAD,CAT2,None,1079
+08:00,8,Sunday,Clear,ADAM ROAD,CAT2,None,1217
+09:00,9,Sunday,Clear,ADAM ROAD,CAT2,Misc.,1368
+10:00,10,Sunday,Clear,ADAM ROAD,CAT2,None,1475
+11:00,11,Sunday,Rainy,ADAM ROAD,CAT2,Diversion,1484
+12:00,12,Sunday,Foggy,ADAM ROAD,CAT2,None,1154
+13:00,13,Sunday,Clear,ADAM ROAD,CAT2,Vehicle Breakdown,1624
+14:00,14,Sunday,Clear,ADAM ROAD,CAT2,Misc.,1377
+15:00,15,Sunday,Clear,ADAM ROAD,CAT2,None,1499
+16:00,16,Sunday,Clear,ADAM ROAD,CAT2,Vehicle Breakdown,1627
+17:00,17,Sunday,Rainy,ADAM ROAD,CAT2,None,1473
+18:00,18,Sunday,Clear,ADAM ROAD,CAT2,None,1559
+19:00,19,Sunday,Clear,ADAM ROAD,CAT2,None,1645
+20:00,20,Sunday,Foggy,ADAM ROAD,CAT2,Road Works,1466
+21:00,21,Sunday,Clear,ADAM ROAD,CAT2,None,1141
+22:00,22,Sunday,Rainy,ADAM ROAD,CAT2,None,987
+23:00,23,Sunday,Rainy,ADAM ROAD,CAT2,None,745
+00:00,0,Monday,Clear,ADAM ROAD,CAT2,None,833
+01:00,1,Monday,Clear,ADAM ROAD,CAT2,None,817
+02:00,2,Monday,Clear,ADAM ROAD,CAT2,Heavy Traffic,775
+03:00,3,Monday,Clear,ADAM ROAD,CAT2,None,199
+04:00,4,Monday,Clear,ADAM ROAD,CAT2,None,610
+05:00,5,Monday,Clear,ADAM ROAD,CAT2,None,833
+06:00,6,Monday,Clear,ADAM ROAD,CAT2,None,993
+07:00,7,Monday,Clear,ADAM ROAD,CAT2,Accident,1163
+08:00,8,Monday,Clear,ADAM ROAD,CAT2,None,1255
+09:00,9,Monday,Clear,ADAM ROAD,CAT2,Diversion,1775
+10:00,10,Monday,Foggy,ADAM ROAD,CAT2,None,1290
+11:00,11,Monday,Clear,ADAM ROAD,CAT2,None,1552
+12:00,12,Monday,Clear,ADAM ROAD,CAT2,None,1545
+13:00,13,Monday,Clear,ADAM ROAD,CAT2,Unattended Vehicle,1518
+14:00,14,Monday,Clear,ADAM ROAD,CAT2,None,1261
+15:00,15,Monday,Rainy,ADAM ROAD,CAT2,None,1560
+16:00,16,Monday,Clear,ADAM ROAD,CAT2,None,1590
+17:00,17,Monday,Clear,ADAM ROAD,CAT2,None,1372
+18:00,18,Monday,Clear,ADAM ROAD,CAT2,None,1536
+19:00,19,Monday,Clear,ADAM ROAD,CAT2,None,1817
+20:00,20,Monday,Clear,ADAM ROAD,CAT2,None,1177
+21:00,21,Monday,Foggy,ADAM ROAD,CAT2,Heavy Traffic,1093
+22:00,22,Monday,Clear,ADAM ROAD,CAT2,None,952
+23:00,23,Monday,Clear,ADAM ROAD,CAT2,None,653
+00:00,0,Tuesday,Clear,ADAM ROAD,CAT2,None,651
+01:00,1,Tuesday,Clear,ADAM ROAD,CAT2,None,367
+02:00,2,Tuesday,Clear,ADAM ROAD,CAT2,None,456
+03:00,3,Tuesday,Clear,ADAM ROAD,CAT2,None,513
+04:00,4,Tuesday,Clear,ADAM ROAD,CAT2,Road Block,710
+05:00,5,Tuesday,Clear,ADAM ROAD,CAT2,None,821
+06:00,6,Tuesday,Clear,ADAM ROAD,CAT2,None,954
+07:00,7,Tuesday,Foggy,ADAM ROAD,CAT2,None,1372
+08:00,8,Tuesday,Clear,ADAM ROAD,CAT2,None,1012
+09:00,9,Tuesday,Clear,ADAM ROAD,CAT2,Road Block,1562
+10:00,10,Tuesday,Clear,ADAM ROAD,CAT2,None,1160
+11:00,11,Tuesday,Clear,ADAM ROAD,CAT2,Heavy Traffic,1354
+12:00,12,Tuesday,Rainy,ADAM ROAD,CAT2,None,1298
+13:00,13,Tuesday,Foggy,ADAM ROAD,CAT2,None,1406
+14:00,14,Tuesday,Clear,ADAM ROAD,CAT2,Road Works,1380
+15:00,15,Tuesday,Clear,ADAM ROAD,CAT2,Obstacle,1193
+16:00,16,Tuesday,Foggy,ADAM ROAD,CAT2,None,1290
+17:00,17,Tuesday,Clear,ADAM ROAD,CAT2,None,1283
+18:00,18,Tuesday,Clear,ADAM ROAD,CAT2,None,1316
+19:00,19,Tuesday,Clear,ADAM ROAD,CAT2,None,1291
+20:00,20,Tuesday,Clear,ADAM ROAD,CAT2,None,1317
+21:00,21,Tuesday,Clear,ADAM ROAD,CAT2,Heavy Traffic,948
+22:00,22,Tuesday,Clear,ADAM ROAD,CAT2,None,914
+23:00,23,Tuesday,Clear,ADAM ROAD,CAT2,Unattended Vehicle,727
+00:00,0,Wednesday,Clear,ADAM ROAD,CAT2,Misc.,611
+01:00,1,Wednesday,Clear,ADAM ROAD,CAT2,None,723
+02:00,2,Wednesday,Clear,ADAM ROAD,CAT2,None,232
+03:00,3,Wednesday,Clear,ADAM ROAD,CAT2,None,234
+04:00,4,Wednesday,Clear,ADAM ROAD,CAT2,None,813
+05:00,5,Wednesday,Rainy,ADAM ROAD,CAT2,Heavy Traffic,922
+06:00,6,Wednesday,Clear,ADAM ROAD,CAT2,Heavy Traffic,976
+07:00,7,Wednesday,Clear,ADAM ROAD,CAT2,None,932
+08:00,8,Wednesday,Clear,ADAM ROAD,CAT2,Unattended Vehicle,1482
+09:00,9,Wednesday,Rainy,ADAM ROAD,CAT2,Misc.,1706
+10:00,10,Wednesday,Clear,ADAM ROAD,CAT2,None,1158
+11:00,11,Wednesday,Clear,ADAM ROAD,CAT2,None,1290
+01:00,1,Tuesday,Clear,AMBER ROAD,CAT3,None,250
+02:00,2,Tuesday,Clear,AMBER ROAD,CAT3,None,278
+03:00,3,Tuesday,Clear,AMBER ROAD,CAT3,None,973
+04:00,4,Tuesday,Rainy,AMBER ROAD,CAT3,None,771
+05:00,5,Tuesday,Clear,AMBER ROAD,CAT3,None,888
+06:00,6,Tuesday,Clear,AMBER ROAD,CAT3,None,1256
+07:00,7,Tuesday,Clear,AMBER ROAD,CAT3,None,987
+08:00,8,Tuesday,Clear,AMBER ROAD,CAT3,None,1697
+09:00,9,Tuesday,Clear,AMBER ROAD,CAT3,None,1149
+10:00,10,Tuesday,Clear,AMBER ROAD,CAT3,None,1300
+11:00,11,Tuesday,Clear,AMBER ROAD,CAT3,None,1265
+12:00,12,Tuesday,Clear,AMBER ROAD,CAT3,None,1002
+13:00,13,Tuesday,Clear,AMBER ROAD,CAT3,None,1326
+14:00,14,Tuesday,Clear,AMBER ROAD,CAT3,None,1445
+15:00,15,Tuesday,Clear,AMBER ROAD,CAT3,None,1393
+16:00,16,Tuesday,Clear,AMBER ROAD,CAT3,None,1384
+17:00,17,Tuesday,Clear,AMBER ROAD,CAT3,None,1497
+18:00,18,Tuesday,Clear,AMBER ROAD,CAT3,None,1462
+19:00,19,Tuesday,Clear,AMBER ROAD,CAT3,None,1692
+20:00,20,Tuesday,Clear,AMBER ROAD,CAT3,None,1583
+21:00,21,Tuesday,Clear,AMBER ROAD,CAT3,None,1293
+22:00,22,Tuesday,Clear,AMBER ROAD,CAT3,None,1081
+23:00,23,Tuesday,Clear,AMBER ROAD,CAT3,None,983
+00:00,0,Wednesday,Clear,AMBER ROAD,CAT3,None,904
+01:00,1,Wednesday,Clear,AMBER ROAD,CAT3,None,871
+02:00,2,Wednesday,Clear,AMBER ROAD,CAT3,None,891
+03:00,3,Wednesday,Clear,AMBER ROAD,CAT3,None,339
+04:00,4,Wednesday,Clear,AMBER ROAD,CAT3,None,341
+05:00,5,Wednesday,Clear,AMBER ROAD,CAT3,None,840
+06:00,6,Wednesday,Clear,AMBER ROAD,CAT3,None,960
+07:00,7,Wednesday,Clear,AMBER ROAD,CAT3,None,997
+08:00,8,Wednesday,Clear,AMBER ROAD,CAT3,None,1198
+09:00,9,Wednesday,Clear,AMBER ROAD,CAT3,None,1224
+10:00,10,Wednesday,Clear,AMBER ROAD,CAT3,None,1582
+11:00,11,Wednesday,Clear,AMBER ROAD,CAT3,None,1297
+12:00,12,Wednesday,Clear,AMBER ROAD,CAT3,None,1378
+13:00,13,Wednesday,Clear,AMBER ROAD,CAT3,None,1370
+14:00,14,Wednesday,Clear,AMBER ROAD,CAT3,None,1295
+15:00,15,Wednesday,Rainy,AMBER ROAD,CAT3,None,1295
+16:00,16,Wednesday,Clear,AMBER ROAD,CAT3,None,1276
+17:00,17,Wednesday,Clear,AMBER ROAD,CAT3,None,1281
+18:00,18,Wednesday,Clear,AMBER ROAD,CAT3,Vehicle Breakdown,1516
+19:00,19,Wednesday,Clear,AMBER ROAD,CAT3,None,1410
+20:00,20,Wednesday,Clear,AMBER ROAD,CAT3,None,1391
+21:00,21,Wednesday,Clear,AMBER ROAD,CAT3,None,1173
+22:00,22,Wednesday,Clear,AMBER ROAD,CAT3,None,1023
+23:00,23,Wednesday,Clear,AMBER ROAD,CAT3,None,868
+00:00,0,Thursday,Clear,AMBER ROAD,CAT3,None,594
+01:00,1,Thursday,Clear,AMBER ROAD,CAT3,None,854
+02:00,2,Thursday,Clear,AMBER ROAD,CAT3,None,327
+03:00,3,Thursday,Clear,AMBER ROAD,CAT3,None,705
+04:00,4,Thursday,Clear,AMBER ROAD,CAT3,None,880
+05:00,5,Thursday,Clear,AMBER ROAD,CAT3,None,761
+06:00,6,Thursday,Clear,AMBER ROAD,CAT3,None,1006
+07:00,7,Thursday,Clear,AMBER ROAD,CAT3,None,1052
+08:00,8,Thursday,Clear,AMBER ROAD,CAT3,None,1072
+09:00,9,Thursday,Clear,AMBER ROAD,CAT3,None,1379
+10:00,10,Thursday,Clear,AMBER ROAD,CAT3,None,1533
+11:00,11,Thursday,Clear,AMBER ROAD,CAT3,None,1310
+12:00,12,Thursday,Clear,AMBER ROAD,CAT3,None,1499
+13:00,13,Thursday,Clear,AMBER ROAD,CAT3,None,1450
+14:00,14,Thursday,Clear,AMBER ROAD,CAT3,None,1576
+15:00,15,Thursday,Clear,AMBER ROAD,CAT3,None,1526
+16:00,16,Thursday,Clear,AMBER ROAD,CAT3,None,1521
+17:00,17,Thursday,Clear,AMBER ROAD,CAT3,None,1481
+18:00,18,Thursday,Clear,AMBER ROAD,CAT3,None,1517
+19:00,19,Thursday,Clear,AMBER ROAD,CAT3,None,1402
+20:00,20,Thursday,Clear,AMBER ROAD,CAT3,None,1808
+21:00,21,Thursday,Clear,AMBER ROAD,CAT3,None,1267
+22:00,22,Thursday,Clear,AMBER ROAD,CAT3,None,1277
+23:00,23,Thursday,Clear,AMBER ROAD,CAT3,None,1008
+00:00,0,Friday,Clear,AMBER ROAD,CAT3,None,888
+01:00,1,Friday,Clear,AMBER ROAD,CAT3,None,649
+02:00,2,Friday,Clear,AMBER ROAD,CAT3,None,408
+03:00,3,Friday,Clear,AMBER ROAD,CAT3,None,844
+04:00,4,Friday,Clear,AMBER ROAD,CAT3,None,984
+05:00,5,Friday,Clear,AMBER ROAD,CAT3,None,963
+06:00,6,Friday,Clear,AMBER ROAD,CAT3,None,1098
+07:00,7,Friday,Clear,AMBER ROAD,CAT3,None,1403
+08:00,8,Friday,Clear,AMBER ROAD,CAT3,None,1839
+09:00,9,Friday,Clear,AMBER ROAD,CAT3,None,1569
+10:00,10,Friday,Clear,AMBER ROAD,CAT3,None,1421
+11:00,11,Friday,Clear,AMBER ROAD,CAT3,None,1374
+12:00,12,Friday,Clear,AMBER ROAD,CAT3,None,1382
+13:00,13,Friday,Clear,AMBER ROAD,CAT3,None,1480
+14:00,14,Friday,Clear,AMBER ROAD,CAT3,None,1414
+15:00,15,Friday,Clear,AMBER ROAD,CAT3,None,1254
+16:00,16,Friday,Clear,AMBER ROAD,CAT3,None,1398
+17:00,17,Friday,Clear,AMBER ROAD,CAT3,None,1420
+18:00,18,Friday,Clear,AMBER ROAD,CAT3,None,1275
+19:00,19,Friday,Clear,AMBER ROAD,CAT3,None,1434
+20:00,20,Friday,Rainy,AMBER ROAD,CAT3,None,1187
+21:00,21,Friday,Clear,AMBER ROAD,CAT3,Vehicle Breakdown,1414
+22:00,22,Friday,Clear,AMBER ROAD,CAT3,None,1036
+23:00,23,Friday,Clear,AMBER ROAD,CAT3,None,767
+00:00,0,Saturday,Clear,AMBER ROAD,CAT3,None,896
+01:00,1,Saturday,Rainy,AMBER ROAD,CAT3,None,358
+02:00,2,Saturday,Clear,AMBER ROAD,CAT3,None,851
+03:00,3,Saturday,Clear,AMBER ROAD,CAT3,None,299
+04:00,4,Saturday,Clear,AMBER ROAD,CAT3,None,576
+05:00,5,Saturday,Clear,AMBER ROAD,CAT3,None,941
+06:00,6,Saturday,Clear,AMBER ROAD,CAT3,None,1158
+07:00,7,Saturday,Clear,AMBER ROAD,CAT3,None,1247
+08:00,8,Saturday,Clear,AMBER ROAD,CAT3,None,1293
+09:00,9,Saturday,Clear,AMBER ROAD,CAT3,None,1963
+10:00,10,Saturday,Clear,AMBER ROAD,CAT3,None,1842
+11:00,11,Saturday,Clear,AMBER ROAD,CAT3,None,1621
+12:00,12,Saturday,Clear,AMBER ROAD,CAT3,None,1621
+13:00,13,Saturday,Clear,AMBER ROAD,CAT3,None,1430
+14:00,14,Saturday,Clear,AMBER ROAD,CAT3,None,1442
+15:00,15,Saturday,Clear,AMBER ROAD,CAT3,None,1560
+16:00,16,Saturday,Clear,AMBER ROAD,CAT3,None,1745
+17:00,17,Saturday,Clear,AMBER ROAD,CAT3,None,1449
+18:00,18,Saturday,Clear,AMBER ROAD,CAT3,None,1560
+19:00,19,Saturday,Clear,AMBER ROAD,CAT3,None,1312
+20:00,20,Saturday,Clear,AMBER ROAD,CAT3,None,1448
+21:00,21,Saturday,Clear,AMBER ROAD,CAT3,None,1226
+22:00,22,Saturday,Clear,AMBER ROAD,CAT3,None,1058
+23:00,23,Saturday,Clear,AMBER ROAD,CAT3,None,876
+00:00,0,Sunday,Clear,AMBER ROAD,CAT3,None,636
+01:00,1,Sunday,Clear,AMBER ROAD,CAT3,None,691
+02:00,2,Sunday,Clear,AMBER ROAD,CAT3,None,380
+03:00,3,Sunday,Clear,AMBER ROAD,CAT3,None,633
+04:00,4,Sunday,Clear,AMBER ROAD,CAT3,None,672
+05:00,5,Sunday,Clear,AMBER ROAD,CAT3,None,542
+06:00,6,Sunday,Clear,AMBER ROAD,CAT3,None,1058
+07:00,7,Sunday,Clear,AMBER ROAD,CAT3,None,1503
+08:00,8,Sunday,Clear,AMBER ROAD,CAT3,None,1376
+09:00,9,Sunday,Clear,AMBER ROAD,CAT3,None,1646
+10:00,10,Sunday,Clear,AMBER ROAD,CAT3,None,1233
+11:00,11,Sunday,Clear,AMBER ROAD,CAT3,None,1350
+12:00,12,Sunday,Clear,AMBER ROAD,CAT3,None,1468
+13:00,13,Sunday,Clear,AMBER ROAD,CAT3,None,1438
+14:00,14,Sunday,Clear,AMBER ROAD,CAT3,None,1221
+15:00,15,Sunday,Clear,AMBER ROAD,CAT3,None,1484
+16:00,16,Sunday,Clear,AMBER ROAD,CAT3,None,1511
+17:00,17,Sunday,Clear,AMBER ROAD,CAT3,None,1444
+18:00,18,Sunday,Clear,AMBER ROAD,CAT3,None,1440
+19:00,19,Sunday,Clear,AMBER ROAD,CAT3,None,1265
+20:00,20,Sunday,Clear,AMBER ROAD,CAT3,None,1173
+21:00,21,Sunday,Clear,AMBER ROAD,CAT3,None,1529
+22:00,22,Sunday,Clear,AMBER ROAD,CAT3,None,1109
+23:00,23,Sunday,Clear,AMBER ROAD,CAT3,None,842
+00:00,0,Monday,Clear,AMBER ROAD,CAT3,None,744
+01:00,1,Monday,Clear,AMBER ROAD,CAT3,None,513
+02:00,2,Monday,Clear,AMBER ROAD,CAT3,Misc.,513
+03:00,3,Monday,Clear,AMBER ROAD,CAT3,None,513
+04:00,4,Monday,Clear,AMBER ROAD,CAT3,None,338
+05:00,5,Monday,Clear,AMBER ROAD,CAT3,None,248
+06:00,6,Sunday,Clear,ANG MO KIO AVENUE 1,CAT2,Road Works,1478
+07:00,7,Sunday,Clear,ANG MO KIO AVENUE 1,CAT2,None,1345
+08:00,8,Sunday,Clear,ANG MO KIO AVENUE 1,CAT2,None,1352
+09:00,9,Sunday,Clear,ANG MO KIO AVENUE 1,CAT2,None,1352
+10:00,10,Sunday,Clear,ANG MO KIO AVENUE 1,CAT2,None,1330
+11:00,11,Sunday,Clear,ANG MO KIO AVENUE 1,CAT2,None,1275
+12:00,12,Sunday,Clear,ANG MO KIO AVENUE 1,CAT2,None,1283
+13:00,13,Sunday,Clear,ANG MO KIO AVENUE 1,CAT2,None,1416
+14:00,14,Sunday,Clear,ANG MO KIO AVENUE 1,CAT2,None,1423
+15:00,15,Sunday,Clear,ANG MO KIO AVENUE 1,CAT2,None,1410
+16:00,16,Sunday,Clear,ANG MO KIO AVENUE 1,CAT2,None,1491
+17:00,17,Sunday,Clear,ANG MO KIO AVENUE 1,CAT2,None,1558
+18:00,18,Sunday,Clear,ANG MO KIO AVENUE 1,CAT2,None,1838
+19:00,19,Sunday,Clear,ANG MO KIO AVENUE 1,CAT2,Vehicle Breakdown,1524
+20:00,20,Sunday,Clear,ANG MO KIO AVENUE 1,CAT2,None,1225
+21:00,21,Sunday,Clear,ANG MO KIO AVENUE 1,CAT2,None,1280
+22:00,22,Sunday,Clear,ANG MO KIO AVENUE 1,CAT2,None,1253
+23:00,23,Sunday,Clear,ANG MO KIO AVENUE 1,CAT2,None,1061
+00:00,0,Monday,Clear,ANG MO KIO AVENUE 1,CAT2,None,648
+01:00,1,Monday,Clear,ANG MO KIO AVENUE 1,CAT2,None,542
+02:00,2,Monday,Clear,ANG MO KIO AVENUE 1,CAT2,None,740
+03:00,3,Monday,Clear,ANG MO KIO AVENUE 1,CAT2,None,737
+04:00,4,Monday,Clear,ANG MO KIO AVENUE 1,CAT2,None,312
+05:00,5,Monday,Clear,ANG MO KIO AVENUE 1,CAT2,None,391
+06:00,6,Monday,Clear,ANG MO KIO AVENUE 1,CAT2,None,925
+07:00,7,Monday,Clear,ANG MO KIO AVENUE 1,CAT2,None,1025
+08:00,8,Monday,Clear,ANG MO KIO AVENUE 1,CAT2,None,1175
+09:00,9,Monday,Clear,ANG MO KIO AVENUE 1,CAT2,None,1456
+10:00,10,Monday,Clear,ANG MO KIO AVENUE 1,CAT2,None,1213
+11:00,11,Monday,Clear,ANG MO KIO AVENUE 1,CAT2,None,1575
+12:00,12,Monday,Clear,ANG MO KIO AVENUE 1,CAT2,None,1571
+13:00,13,Monday,Clear,ANG MO KIO AVENUE 1,CAT2,None,1412
+14:00,14,Monday,Clear,ANG MO KIO AVENUE 1,CAT2,None,1374
+15:00,15,Monday,Clear,ANG MO KIO AVENUE 1,CAT2,None,1555
+16:00,16,Monday,Clear,ANG MO KIO AVENUE 1,CAT2,None,1411
+17:00,17,Monday,Clear,ANG MO KIO AVENUE 1,CAT2,None,1472
+18:00,18,Monday,Clear,ANG MO KIO AVENUE 1,CAT2,None,1651
+19:00,19,Monday,Clear,ANG MO KIO AVENUE 1,CAT2,None,1250
+20:00,20,Monday,Clear,ANG MO KIO AVENUE 1,CAT2,None,1599
+21:00,21,Monday,Clear,ANG MO KIO AVENUE 1,CAT2,None,1340
+22:00,22,Monday,Clear,ANG MO KIO AVENUE 1,CAT2,None,1057
+23:00,23,Monday,Clear,ANG MO KIO AVENUE 1,CAT2,None,789
+00:00,0,Tuesday,Clear,ANG MO KIO AVENUE 1,CAT2,None,688
+01:00,1,Tuesday,Clear,ANG MO KIO AVENUE 1,CAT2,None,911
+02:00,2,Tuesday,Clear,ANG MO KIO AVENUE 1,CAT2,None,279
+03:00,3,Tuesday,Clear,ANG MO KIO AVENUE 1,CAT2,None,918
+04:00,4,Tuesday,Clear,ANG MO KIO AVENUE 1,CAT2,None,578
+05:00,5,Tuesday,Clear,ANG MO KIO AVENUE 1,CAT2,None,947
+06:00,6,Tuesday,Clear,ANG MO KIO AVENUE 1,CAT2,None,1125
+07:00,7,Tuesday,Clear,ANG MO KIO AVENUE 1,CAT2,None,1398
+08:00,8,Tuesday,Clear,ANG MO KIO AVENUE 1,CAT2,None,1578
+09:00,9,Tuesday,Clear,ANG MO KIO AVENUE 1,CAT2,None,1409
+10:00,10,Tuesday,Clear,ANG MO KIO AVENUE 1,CAT2,None,1379
+11:00,11,Tuesday,Clear,ANG MO KIO AVENUE 1,CAT2,None,1471
+12:00,12,Tuesday,Clear,ANG MO KIO AVENUE 1,CAT2,None,1126
+13:00,13,Tuesday,Clear,ANG MO KIO AVENUE 1,CAT2,None,1313
+14:00,14,Tuesday,Clear,ANG MO KIO AVENUE 1,CAT2,None,1459
+15:00,15,Tuesday,Clear,ANG MO KIO AVENUE 1,CAT2,None,1199
+16:00,16,Tuesday,Clear,ANG MO KIO AVENUE 1,CAT2,None,1449
+17:00,17,Tuesday,Clear,ANG MO KIO AVENUE 1,CAT2,None,1342
+18:00,18,Tuesday,Clear,ANG MO KIO AVENUE 1,CAT2,None,1415
+19:00,19,Tuesday,Clear,ANG MO KIO AVENUE 1,CAT2,None,1463
+20:00,20,Tuesday,Clear,ANG MO KIO AVENUE 1,CAT2,None,1343
+21:00,21,Tuesday,Clear,ANG MO KIO AVENUE 1,CAT2,None,1449
+22:00,22,Tuesday,Clear,ANG MO KIO AVENUE 1,CAT2,None,1124
+23:00,23,Tuesday,Clear,ANG MO KIO AVENUE 1,CAT2,None,1111
+00:00,0,Wednesday,Clear,ANG MO KIO AVENUE 1,CAT2,None,804
+01:00,1,Wednesday,Clear,ANG MO KIO AVENUE 1,CAT2,None,902
+02:00,2,Wednesday,Clear,ANG MO KIO AVENUE 1,CAT2,None,294
+03:00,3,Wednesday,Clear,ANG MO KIO AVENUE 1,CAT2,None,291
+04:00,4,Wednesday,Clear,ANG MO KIO AVENUE 1,CAT2,None,708
+05:00,5,Wednesday,Clear,ANG MO KIO AVENUE 1,CAT2,None,351
+06:00,6,Wednesday,Clear,ANG MO KIO AVENUE 1,CAT2,None,979
+07:00,7,Wednesday,Clear,ANG MO KIO AVENUE 1,CAT2,None,1231
+08:00,8,Wednesday,Clear,ANG MO KIO AVENUE 1,CAT2,None,1292
+09:00,9,Wednesday,Clear,ANG MO KIO AVENUE 1,CAT2,None,1328
+10:00,10,Wednesday,Clear,ANG MO KIO AVENUE 1,CAT2,None,1648
+11:00,11,Wednesday,Clear,ANG MO KIO AVENUE 1,CAT2,None,1539
+12:00,12,Wednesday,Clear,ANG MO KIO AVENUE 1,CAT2,None,1624
+13:00,13,Wednesday,Clear,ANG MO KIO AVENUE 1,CAT2,None,1440
+14:00,14,Wednesday,Clear,ANG MO KIO AVENUE 1,CAT2,None,1327
+15:00,15,Wednesday,Clear,ANG MO KIO AVENUE 1,CAT2,None,1457
+16:00,16,Wednesday,Clear,ANG MO KIO AVENUE 1,CAT2,None,1645
+17:00,17,Wednesday,Clear,ANG MO KIO AVENUE 1,CAT2,None,1882
+18:00,18,Wednesday,Clear,ANG MO KIO AVENUE 1,CAT2,None,1407
+19:00,19,Wednesday,Clear,ANG MO KIO AVENUE 1,CAT2,None,1379
+20:00,20,Wednesday,Clear,ANG MO KIO AVENUE 1,CAT2,None,1244
+21:00,21,Wednesday,Clear,ANG MO KIO AVENUE 1,CAT2,None,1221
+22:00,22,Wednesday,Clear,ANG MO KIO AVENUE 1,CAT2,None,1006
+23:00,23,Wednesday,Clear,ANG MO KIO AVENUE 1,CAT2,None,708
+00:00,0,Thursday,Clear,ANG MO KIO AVENUE 1,CAT2,None,859
+01:00,1,Thursday,Clear,ANG MO KIO AVENUE 1,CAT2,None,896
+02:00,2,Thursday,Clear,ANG MO KIO AVENUE 1,CAT2,None,740
+03:00,3,Thursday,Clear,ANG MO KIO AVENUE 1,CAT2,None,790
+04:00,4,Thursday,Clear,ANG MO KIO AVENUE 1,CAT2,None,671
+05:00,5,Thursday,Clear,ANG MO KIO AVENUE 1,CAT2,None,1014
+06:00,6,Thursday,Clear,ANG MO KIO AVENUE 1,CAT2,None,1083
+07:00,7,Thursday,Clear,ANG MO KIO AVENUE 1,CAT2,None,1437

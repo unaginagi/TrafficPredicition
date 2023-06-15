@@ -1,0 +1,786 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Map</title>
+  <link rel="stylesheet" href="/static/New.css">
+  <script async
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBdlGwiDrx6NIo_lb0g8oLbTPKl1fr1C90&libraries=places"></script>
+</head>
+
+<body>
+  <div id="map" class="map"></div>
+  <!-- Header -->
+  <rect class="rect rect-search" >
+    <h1>Hi <a href="./profile">{{name}}</a></h1>
+    <!-- Search Feature -->
+    <div class="search-container">
+      <img id="search" src="/static/search.png" onclick="popup('search')">
+      <div id="searchinputs" hidden>
+        <label for="origin-input">From:</label>
+        <input id="origin-input" type="text" placeholder="Enter an origin location" />
+        <a onclick="getLocation()" class="btn">Current Location</a>
+        <label for="destination-input">To:</label>
+        <input id="destination-input" type="text" placeholder="Enter a destination location" />
+      </div>
+    </div>
+    <!-- Alarm Feature -->
+    <form id = "alarm">
+      <a href = "/alarm" class="btn btn-alarm">Set Alarm</a>
+    </form>
+    <!-- Predict Feature -->
+    <div class = "predict-container">
+      <a id = "predict" class="btn btn-predict" onclick = "popup('predict')">Predict</a>
+      <div id="predictinputs" hidden>
+        <form id="Predict" action="{{url_for('predict')}}" method="POST">
+          <label for="route">Route:</label>
+          <input type="text" name="event" id="event" hidden></input>
+          <input type="text" name="route" id="route"/>
+          <input type="text" name="roadDetail" id="roadDetail" hidden></input>
+          <label for="day">Day:</label>
+          <input type="date" id="day" name="day">
+          <label for="time">Time:</label>
+          <input type="number" id="time" name="time" min="1" max="24">
+          <label for="weather">Weather:</label>
+          <select id="weather" name="weather">
+            <option value="Current Weather" select="selected">Current Weather</option>
+            <option value="Clear">Clear</option>
+            <option value="Foggy">Foggy</option>
+            <option value="Rainy">Rainy</option>
+          </select>
+          <!-- <input type="submit" name="submit" class="btn btn-dashboard" value = "Dashboard"> -->
+          <input type="submit" name="submit" value="Predict">
+          <input type="submit" name="submit" class="btn btn-dashboard" value = "Dashboard">
+        </form>
+      </div>
+    </div>
+  </rect>
+
+  <div>
+    <rect id="rect-route" class="rect rect-route">
+      <ul id="route-list"></ul>
+    </rect>
+  </div>
+</body>
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script>
+  var origin, destination;
+  var directionsService, directionsRenderer;
+  var map;
+  var markers = [];
+  var bestRoute;
+  var saved = [];
+  var markerInfo = [];
+  var traffic = "{{result}}"
+  var roadtraffic = "{{road}}"
+  var timePred = "{{time}}"
+  var globalRoute;
+
+  // To hide extra buttons on load
+  document.getElementById("alarm").style.display = "none";
+  document.getElementById("predict").style.display = "none";
+  document.getElementById("rect-route").style.display = "none";
+  const options = {
+    componentRestrictions: { country: "sg" },
+    fields: ["formatted_address", "geometry", "name", "vicinity"],
+  };
+  var api = "AIzaSyBdlGwiDrx6NIo_lb0g8oLbTPKl1fr1C90&libraries=places"
+
+  $("#predict").submit(function (e) {
+    e.preventDefault();
+    saveInfo();
+  });
+
+  function saveInfo() {
+    time = document.getElementById("time").value;
+    sessionStorage.setItem("time", time);
+    day = document.getElementById("day").value;
+    sessionStorage.setItem("day", day)
+    weather = document.getElementById("weather").value;
+    sessionStorage.setItem("weather", weather)
+    $('#predict').submit();
+  }
+
+  window.onload = function () {
+    initMap()
+    origin = JSON.parse(sessionStorage.getItem("origin-geo"));
+    destination = JSON.parse(sessionStorage.getItem("destination-geo"));
+    originName = sessionStorage.getItem("origin");
+    destinationName = sessionStorage.getItem("destination");
+
+    traffic = traffic.replace('[', '');
+    traffic = traffic.replace(']', '');
+    traffic = traffic.split(",");
+
+    timePred = timePred.replace('[', '');
+    timePred = timePred.replace(']', '');
+    timePred = timePred.split(",");
+    
+    roadtraffic = roadtraffic.replace('[', '');
+    roadtraffic = roadtraffic.replace(']', '');
+    roadtraffic = roadtraffic.split(",");
+
+    if (sessionStorage.getItem("day") != "" &&
+      typeof sessionStorage.getItem("day") !== undefined &&
+      sessionStorage.getItem("day") != "") {
+      document.getElementById('day').valueAsDate = sessionStorage.getItem("day");
+    }
+
+    if (sessionStorage.getItem("time") != null &&
+      typeof sessionStorage.getItem("time") !== undefined &&
+      sessionStorage.getItem("time") != "") {
+      document.getElementById('time').value = sessionStorage.getItem("time");
+    }
+
+    if (sessionStorage.getItem("weather") != "" &&
+      sessionStorage.getItem("weather") != null
+      && typeof sessionStorage.getItem("weather") !== undefined) {
+      document.getElementById('weather').value = sessionStorage.getItem("weather");
+    }
+
+    if (sessionStorage.getItem("marker") != null && typeof sessionStorage.getItem("marker") !== undefined) {
+      saved = JSON.parse(sessionStorage.getItem("marker"));
+      for (i = 0; i < saved.length; i++) {
+        saved[i].noOfMarker = i;
+        placeMarker(saved[i].geocode, saved[i].incident, saved[i].noOfMarker);
+      }
+      calculateAndDisplayRoute(markers);
+    }
+    else {
+      calculateAndDisplayRoute();
+    }
+
+    document.getElementById("origin-input").value = originName;
+    document.getElementById("destination-input").value = destinationName;
+  };
+
+  function popup(y){
+    if (y == "search") {
+      var x = document.getElementById("searchinputs");
+    } else {
+      var x = document.getElementById("predictinputs");
+    }
+    if (x.style.display != "none") {
+      x.style.display = "none";
+    } else {
+      x.style.display = "flex";
+    }
+  }
+
+  function initMap() {
+    // Initialize map and directions service/renderer
+    //changed
+    map = new google.maps.Map(document.getElementById("map"), {
+      center: { lat: 1.3291, lng: 103.7762 },
+      zoom: 15,
+      minZoom: 12,
+      maxZoom: 18,
+      restriction: {
+        latLngBounds: {
+          north: 1.52,
+          south: 1.23,
+          west: 103.6,
+          east: 104,
+        },
+      },
+    });
+
+    directionsService = new google.maps.DirectionsService();
+    directionsRenderer = new google.maps.DirectionsRenderer();
+    directionsRenderer.setMap(map);
+
+    // Add autocomplete search box for origin
+    var originInput = document.getElementById("origin-input");
+    var originAutocomplete = new google.maps.places.Autocomplete(originInput, options);
+    originAutocomplete.bindTo("bounds", map);
+    originAutocomplete.addListener("place_changed", function () {
+      var place = originAutocomplete.getPlace();
+      if (!place.geometry) {
+        window.alert("No details available for input: '" + place.name + "'");
+        return;
+      }
+      if (place.geometry.viewport) {
+        map.fitBounds(place.geometry.viewport);
+      } else {
+        map.setCenter(place.geometry.location);
+        map.setZoom(17);
+      }
+      origin = place.geometry.location;
+      //added
+      sessionStorage.setItem("origin-geo", JSON.stringify(origin))
+      sessionStorage.setItem("origin", place.name);
+      calculateAndDisplayRoute();
+    });
+
+    // Add autocomplete search box for destination
+    var destinationInput = document.getElementById("destination-input");
+    var destinationAutocomplete = new google.maps.places.Autocomplete(destinationInput, options);
+    destinationAutocomplete.bindTo("bounds", map);
+    destinationAutocomplete.addListener("place_changed", function () {
+      var place = destinationAutocomplete.getPlace();
+      if (!place.geometry) {
+        window.alert("No details available for input: '" + place.name + "'");
+        return;
+      }
+      if (place.geometry.viewport) {
+        map.fitBounds(place.geometry.viewport);
+      } else {
+        map.setCenter(place.geometry.location);
+        map.setZoom(17);
+      }
+      destination = place.geometry.location;
+      //added
+      sessionStorage.setItem("destination-geo", JSON.stringify(destination))
+      sessionStorage.setItem("destination", place.name);
+      calculateAndDisplayRoute();
+    });
+
+    // Add click event listener to map to place marker
+    google.maps.event.addListener(map, "click", function (event) {
+      placeMarker(event.latLng);
+    });
+  }
+
+  function placeMarker(location, inci, num) {
+
+    var marker = new google.maps.Marker({
+      position: location,
+      map: map,
+    });
+    if (!num) {
+      markers.push(marker);
+    }
+    if (num) {
+      markers[num - 1] = marker;
+    }
+
+    var geocoder = new google.maps.Geocoder();
+    geocoder.geocode({ location: location }, function (results, status) {
+      if (status === "OK") {
+        if (results[0]) {
+          //added
+          var mark = { geocode: location, address: results[0].formatted_address, noOfMarker: (markers.length - 1) };
+          markerInfo.push(mark);
+          var id = markers.length - 1
+          if (inci) {
+            if (inci == "Accident") {
+              var infowindow = new google.maps.InfoWindow({
+                content:
+                  "<div id=" + id.toString()
+                  + "> <strong>Location:</strong>" +
+                  results[0].formatted_address +
+                  '<br><br><select id="incident" name="cars">' +
+                  '<option value="Accident" selected="selected">Accident</option>' +
+                  '<option value="Diversion">Diversion</option>' +
+                  '<option value="Heavy Traffic">Heavy Traffic</option>' +
+                  '<option value="Misc.">Misc.</option>' +
+                  '<option value="Obstacle">Obstacle</option>' +
+                  '<option value="Road Block">Road Block</option>' +
+                  '<option value="Road Works">Road Works</option>' +
+                  '<option value="Unattended Vehicle">Unattended Vehicle</option>' +
+                  '<option value="Vehicle Breakdown">Vehicle Breakdown</option>' +
+                  '</select>' +
+                  "<button type='button' disabled>Saved!</button>" +
+                  "<button type='button' onclick='deleteMarker(this)'>del</button></div>",
+              });
+              infowindow.open(map, marker);
+              google.maps.event.addListener(marker, "click", function () {
+                infowindow.open(map, marker);
+              });
+            }
+            else if (inci == "Diversion") {
+              var infowindow = new google.maps.InfoWindow({
+                content:
+                  "<div id=" + id.toString()
+                  + "> <strong>Location:</strong>" +
+                  results[0].formatted_address +
+                  '<br><br><select id="incident" name="cars">' +
+                  '<option value="Accident">Accident</option>' +
+                  '<option value="Diversion"selected="selected">Diversion</option>' +
+                  '<option value="Heavy Traffic">Heavy Traffic</option>' +
+                  '<option value="Misc.">Misc.</option>' +
+                  '<option value="Obstacle">Obstacle</option>' +
+                  '<option value="Road Block">Road Block</option>' +
+                  '<option value="Road Works">Road Works</option>' +
+                  '<option value="Unattended Vehicle">Unattended Vehicle</option>' +
+                  '<option value="Vehicle Breakdown">Vehicle Breakdown</option>' +
+                  '</select>' +
+                  "<button type='button' disabled>Saved!</button>" +
+                  "<button type='button' onclick='deleteMarker(this)'>del</button></div>",
+              });
+              infowindow.open(map, marker);
+              google.maps.event.addListener(marker, "click", function () {
+                infowindow.open(map, marker);
+              });
+            }
+            else if (inci == "Heavy Traffic") {
+              var infowindow = new google.maps.InfoWindow({
+                content:
+                  "<div id=" + id.toString()
+                  + "> <strong>Location:</strong>" +
+                  results[0].formatted_address +
+                  '<br><br><select id="incident" name="cars">' +
+                  '<option value="Accident">Accident</option>' +
+                  '<option value="Diversion">Diversion</option>' +
+                  '<option value="Heavy Traffic"selected="selected">Heavy Traffic</option>' +
+                  '<option value="Misc.">Misc.</option>' +
+                  '<option value="Obstacle">Obstacle</option>' +
+                  '<option value="Road Block">Road Block</option>' +
+                  '<option value="Road Works">Road Works</option>' +
+                  '<option value="Unattended Vehicle">Unattended Vehicle</option>' +
+                  '<option value="Vehicle Breakdown">Vehicle Breakdown</option>' +
+                  '</select>' +
+                  "<button type='button' disabled>Saved!</button>" +
+                  "<button type='button' onclick='deleteMarker(this)'>del</button></div>",
+              });
+              infowindow.open(map, marker);
+              google.maps.event.addListener(marker, "click", function () {
+                infowindow.open(map, marker);
+              });
+            }
+            else if (inci == "Misc.") {
+              var infowindow = new google.maps.InfoWindow({
+                content:
+                  "<div id=" + id.toString()
+                  + "> <strong>Location:</strong>" +
+                  results[0].formatted_address +
+                  '<br><br><select id="incident" name="cars">' +
+                  '<option value="Accident">Accident</option>' +
+                  '<option value="Diversion">Diversion</option>' +
+                  '<option value="Heavy Traffic">Heavy Traffic</option>' +
+                  '<option value="Misc."selected="selected">Misc.</option>' +
+                  '<option value="Obstacle">Obstacle</option>' +
+                  '<option value="Road Block">Road Block</option>' +
+                  '<option value="Road Works">Road Works</option>' +
+                  '<option value="Unattended Vehicle">Unattended Vehicle</option>' +
+                  '<option value="Vehicle Breakdown">Vehicle Breakdown</option>' +
+                  '</select>' +
+                  "<button type='button' disabled>Saved!</button>" +
+                  "<button type='button' onclick='deleteMarker(this)'>del</button></div>",
+              });
+              infowindow.open(map, marker);
+              google.maps.event.addListener(marker, "click", function () {
+                infowindow.open(map, marker);
+              });
+            } else if (inci == "Obstacle") {
+              var infowindow = new google.maps.InfoWindow({
+                content:
+                  "<div id=" + id.toString()
+                  + "> <strong>Location:</strong>" +
+                  results[0].formatted_address +
+                  '<br><br><select id="incident" name="cars">' +
+                  '<option value="Accident">Accident</option>' +
+                  '<option value="Diversion">Diversion</option>' +
+                  '<option value="Heavy Traffic">Heavy Traffic</option>' +
+                  '<option value="Misc.">Misc.</option>' +
+                  '<option value="Obstacle"selected="selected">Obstacle</option>' +
+                  '<option value="Road Block">Road Block</option>' +
+                  '<option value="Road Works">Road Works</option>' +
+                  '<option value="Unattended Vehicle">Unattended Vehicle</option>' +
+                  '<option value="Vehicle Breakdown">Vehicle Breakdown</option>' +
+                  '</select>' +
+                  "<button type='button' disabled>Saved!</button>" +
+                  "<button type='button' onclick='deleteMarker(this)'>del</button></div>",
+              });
+              infowindow.open(map, marker);
+              google.maps.event.addListener(marker, "click", function () {
+                infowindow.open(map, marker);
+              });
+            } else if (inci == "Road Block") {
+              var infowindow = new google.maps.InfoWindow({
+                content:
+                  "<div id=" + id.toString()
+                  + "> <strong>Location:</strong>" +
+                  results[0].formatted_address +
+                  '<br><br><select id="incident" name="cars">' +
+                  '<option value="Accident">Accident</option>' +
+                  '<option value="Diversion">Diversion</option>' +
+                  '<option value="Heavy Traffic">Heavy Traffic</option>' +
+                  '<option value="Misc.">Misc.</option>' +
+                  '<option value="Obstacle">Obstacle</option>' +
+                  '<option value="Road Block"selected="selected">Road Block</option>' +
+                  '<option value="Road Works">Road Works</option>' +
+                  '<option value="Unattended Vehicle">Unattended Vehicle</option>' +
+                  '<option value="Vehicle Breakdown">Vehicle Breakdown</option>' +
+                  '</select>' +
+                  "<button type='button' disabled>Saved!</button>" +
+                  "<button type='button' onclick='deleteMarker(this)'>del</button></div>",
+              });
+              infowindow.open(map, marker);
+              google.maps.event.addListener(marker, "click", function () {
+                infowindow.open(map, marker);
+              });
+            } else if (inci == "Road Works") {
+              var infowindow = new google.maps.InfoWindow({
+                content:
+                  "<div id=" + id.toString()
+                  + "> <strong>Location:</strong>" +
+                  results[0].formatted_address +
+                  '<br><br><select id="incident" name="cars">' +
+                  '<option value="Accident">Accident</option>' +
+                  '<option value="Diversion">Diversion</option>' +
+                  '<option value="Heavy Traffic">Heavy Traffic</option>' +
+                  '<option value="Misc.">Misc.</option>' +
+                  '<option value="Obstacle">Obstacle</option>' +
+                  '<option value="Road Block">Road Block</option>' +
+                  '<option value="Road Works"selected="selected">Road Works</option>' +
+                  '<option value="Unattended Vehicle">Unattended Vehicle</option>' +
+                  '<option value="Vehicle Breakdown">Vehicle Breakdown</option>' +
+                  '</select>' +
+                  "<button type='button' disabled>Saved!</button>" +
+                  "<button type='button' onclick='deleteMarker(this)'>del</button></div>",
+              });
+              infowindow.open(map, marker);
+              google.maps.event.addListener(marker, "click", function () {
+                infowindow.open(map, marker);
+              });
+            } else if (inci == "Unattended Vehicle") {
+              var infowindow = new google.maps.InfoWindow({
+                content:
+                  "<div id=" + id.toString()
+                  + "> <strong>Location:</strong>" +
+                  results[0].formatted_address +
+                  '<br><br><select id="incident" name="cars">' +
+                  '<option value="Accident">Accident</option>' +
+                  '<option value="Diversion">Diversion</option>' +
+                  '<option value="Heavy Traffic">Heavy Traffic</option>' +
+                  '<option value="Misc.">Misc.</option>' +
+                  '<option value="Obstacle">Obstacle</option>' +
+                  '<option value="Road Block">Road Block</option>' +
+                  '<option value="Road Works">Road Works</option>' +
+                  '<option value="Unattended Vehicle"selected="selected">Unattended Vehicle</option>' +
+                  '<option value="Vehicle Breakdown">Vehicle Breakdown</option>' +
+                  '</select>' +
+                  "<button type='button' disabled>Saved!</button>" +
+                  "<button type='button' onclick='deleteMarker(this)'>del</button></div>",
+              });
+              infowindow.open(map, marker);
+              google.maps.event.addListener(marker, "click", function () {
+                infowindow.open(map, marker);
+              });
+            } else if (inci == "Vehicle Breakdown") {
+              var infowindow = new google.maps.InfoWindow({
+                content:
+                  "<div id=" + id.toString()
+                  + "> <strong>Location:</strong>" +
+                  results[0].formatted_address +
+                  '<br><br><select id="incident" name="cars">' +
+                  '<option value="Accident">Accident</option>' +
+                  '<option value="Diversion">Diversion</option>' +
+                  '<option value="Heavy Traffic">Heavy Traffic</option>' +
+                  '<option value="Misc.">Misc.</option>' +
+                  '<option value="Obstacle">Obstacle</option>' +
+                  '<option value="Road Block">Road Block</option>' +
+                  '<option value="Road Works">Road Works</option>' +
+                  '<option value="Unattended Vehicle">Unattended Vehicle</option>' +
+                  '<option value="Vehicle Breakdown"selected="selected>Vehicle Breakdown</option>' +
+                  '</select>' +
+                  "<button type='button' disabled>Saved!</button>" +
+                  "<button type='button' onclick='deleteMarker(this)'>del</button></div>",
+              });
+              infowindow.open(map, marker);
+              google.maps.event.addListener(marker, "click", function () {
+                infowindow.open(map, marker);
+              });
+            }
+          }
+          else {
+            var infowindow = new google.maps.InfoWindow({
+              content:
+                "<div id=" + id.toString()
+                + "> <strong>Location:</strong>" +
+                results[0].formatted_address +
+                '<br><br><select id="incident" name="cars">' +
+                '<option value="Accident">Accident</option>' +
+                '<option value="Diversion">Diversion</option>' +
+                '<option value="Heavy Traffic">Heavy Traffic</option>' +
+                '<option value="Misc.">Misc.</option>' +
+                '<option value="Obstacle">Obstacle</option>' +
+                '<option value="Road Block">Road Block</option>' +
+                '<option value="Road Works">Road Works</option>' +
+                '<option value="Unattended Vehicle">Unattended Vehicle</option>' +
+                '<option value="Vehicle Breakdown">Vehicle Breakdown</option>' +
+                '</select>' +
+                "<button type='button' onclick='saveMarker(this)'>Save</button>" +
+                "<button type='button' onclick='deleteMarker(this)'>del</button></div>",
+            });
+            infowindow.open(map, marker);
+            google.maps.event.addListener(marker, "click", function () {
+              infowindow.open(map, marker);
+            });
+          }
+        } else {
+          window.alert("No results found");
+        }
+      } else {
+        window.alert("Geocoder failed due to: " + status);
+      }
+    });
+  }
+
+  function grade(v1, v2){
+    v1 =  parseFloat(v1)
+    console.log("v1: " + v1)
+    console.log("v2: " + v2)
+    var v = v1 / v2
+    if (v > 5){
+      return "A"
+    } else if (v >= 4){
+      return "B"
+    } else if (v >= 3){
+      return "C"
+    } else if (v >= 2){
+      return "D"
+    } else if (v >= 1){
+      return "E"
+    } else {return "F"}
+  }
+
+  function calculateAndDisplayRoute(marker) {
+    document.getElementById("searchinputs").style.display = "none";
+
+    if (!origin || !destination) {
+      return;
+    }
+
+    var request = {
+      origin: origin,
+      destination: destination,
+      travelMode: google.maps.TravelMode.DRIVING,
+      provideRouteAlternatives: true,
+    };
+
+    directionsService.route(request, function (response, status) 
+    {
+      if (status === "OK") 
+      {
+        document.getElementById("alarm").style.display = "flex";
+        document.getElementById("predict").style.display = "flex";
+        document.getElementById("rect-route").style.display = "flex";
+        directionsRenderer.setDirections(response);
+
+        var routes = response.routes;
+        var routeList = document.getElementById("route-list");
+        routeList.innerHTML = "";
+        var roads = [];
+        //added
+        var alternative = [];
+        var road_details = [];
+        var add = 0
+        if (!marker) 
+        {
+          for (var i = 0; i < routes.length; i++) {
+            var route = routes[i];
+            var routeSummary = route.summary;
+            var routeDuration = route.legs[0].duration.text;
+            var routeLength = route.legs[0].distance.text;
+            roads.push(routeSummary);
+            var rd = '"' + routeLength + ' - ' + routeDuration + '"';
+            road_details.push(rd);
+            //added
+            if (i == 0) {
+              sessionStorage.setItem("route", routeSummary)
+              sessionStorage.setItem("duration", routeDuration)
+            }
+            else {
+              alternative.push(routeSummary)
+            }
+
+            var listItem = document.createElement("li");
+            if (traffic[0] != "") {
+              if (routeSummary.includes("and")) {
+                sum = (Math.round(traffic[i + add]) + Math.round(traffic[i + 1 + add]))
+                listItem.innerHTML = "<a class='btn btn-routelist'><strong>" + routeSummary + "</strong> (" + routeLength + ", " + routeDuration + ")"
+                  + sum + " volume</a>";
+                  add += 1
+              }
+              else {
+                listItem.innerHTML = "<a class='btn btn-routelist'><strong>" + routeSummary + "</strong> (" + routeLength + ", " + routeDuration + ")"
+                  + Math.round(traffic[i+ add]) + " volume</a>";
+              }
+            }
+            else {
+              listItem.innerHTML = "<a class='btn btn-routelist'><strong>" + routeSummary + "</strong> (" + routeLength + ", " + routeDuration + ")</a>"
+            }
+
+            listItem.onclick = function () {
+              var index = this.getAttribute("data-index");
+              directionsRenderer.setRouteIndex(parseInt(index));
+            };
+            listItem.setAttribute("data-index", i);
+            document.getElementById("route").value = roads
+            document.getElementById("roadDetail").value = road_details
+            routeList.appendChild(listItem);
+            //added
+            sessionStorage.setItem("alternative", JSON.stringify(alternative))
+          }
+        }
+        else if (marker != null) 
+        {
+          console.log("here")
+          for (var i = 0; i < routes.length; i++) 
+          {
+            var route = routes[i];
+            var routeSummary = route.summary;
+            var routeDuration = route.legs[0].duration.text;
+            var routeLength = route.legs[0].distance.text;
+            roads.push(routeSummary);
+            var rd = '"' + routeLength + ' - ' + routeDuration + '"';
+            road_details.push(rd);
+            var polyline = new google.maps.Polyline({
+              path: route.overview_path
+            });
+
+            //added
+            if (i == 0) {
+              sessionStorage.setItem("route", routeSummary)
+              sessionStorage.setItem("duration", routeDuration)
+            }
+            else {
+              alternative.push(routeSummary)
+            }
+
+            totalInfluence = 0
+
+            for (x = 0; x < marker.length; x++)
+            {
+              var myPosition = new google.maps.LatLng(marker[x].getPosition().lat(),
+                                marker[x].getPosition().lng());
+              if (google.maps.geometry.poly.isLocationOnEdge(myPosition, polyline, 0.0007))
+              {
+                totalInfluence += Math.round(roadtraffic[x])
+              }
+            }
+
+            var listItem = document.createElement("li");
+            if (traffic[0] != "") 
+            {
+              if (totalInfluence != 0) 
+              {
+                if (routeSummary.includes(" and ")) 
+                {
+                  sum = (Math.round(traffic[i + add]) + Math.round(traffic[i + 1 + add]))
+                  g = grade(routeDuration, timePred[i])
+                  listItem.innerHTML = "<a class='btn btn-routelist'><strong>" + routeSummary + "</strong> (" + routeLength + ", " + routeDuration + ") "
+                    + sum + " volume, +" + Math.round(timePred[i]) + " mins and + " + totalInfluence + " volume, Grade: " + g + "</a>" ;
+                    add += 1
+                }
+                else 
+                {
+                  g = grade(routeDuration,timePred[i+ add])
+                  listItem.innerHTML = "<a class='btn btn-routelist'><strong>" + routeSummary + "</strong> (" + routeLength + ", " + routeDuration + ") "
+                    + Math.round(traffic[i+add]) + " volume, +" + Math.round(timePred[i+ add]) 
+                    + " mins and + " + totalInfluence + " volume, Grade: " + g + "</a>" ;
+                }
+              }
+              else {
+                if (routeSummary.includes(" and ")) {
+                  sum = (Math.round(traffic[i + add]) + Math.round(traffic[i + 1 + add]))
+                  listItem.innerHTML = "<a class='btn btn-routelist'><strong>" + routeSummary + "</strong> (" + routeLength + ", " + routeDuration + ")"
+                    +sum + " volume</a>" ;
+                    add += 1
+                }
+                else {
+                  listItem.innerHTML = "<a class='btn btn-routelist'><strong>" + routeSummary + "</strong> (" + routeLength + ", " + routeDuration + ")"
+                    + Math.round(traffic[i+add]) + " volume</a>";
+                }
+              }
+            }
+            else {
+              listItem.innerHTML = "<a class='btn btn-routelist'><strong>" + routeSummary + "</strong> (" + routeLength + ", " + routeDuration + ")</a>"
+            }
+
+            listItem.onclick = function () {
+              var index = this.getAttribute("data-index");
+              directionsRenderer.setRouteIndex(parseInt(index));
+            }
+            listItem.setAttribute("data-index", i);
+            document.getElementById("route").value = roads
+            document.getElementById("roadDetail").value = road_details
+            console.log(listItem.innerHTML)
+            routeList.appendChild(listItem);
+            //added
+            sessionStorage.setItem("alternative", JSON.stringify(alternative))
+          }
+        }
+      } else {
+        window.alert("Directions request failed due to " + status);
+      }
+    });
+  }
+
+  function saveMarker(button) {
+    //added
+    if (saved.length >= 5) {
+      alert("Too many Saved Incidents, Please delete one before adding another.")
+      return;
+    }
+    var info = button.previousSibling;
+    var num = button.parentNode.id;
+    var location = markers[num].getPosition();
+    button.innerHTML = "Saved!";
+    var x = markerInfo[num]["incident"] = info.value;
+
+    //added
+    saved.push(markerInfo[num])
+    sessionStorage.setItem("marker", JSON.stringify(saved));
+    button.disabled = true;
+    //changed
+    document.getElementById("event").value = JSON.stringify(saved);
+  }
+
+  //added
+  function deleteMarker(button) {
+    var num = Number(button.parentNode.id);
+    markers[num].setMap(null);
+    markers[num] = null;
+    for (i = 0; i < saved.length; i++) {
+      if (saved[i].noOfMarker == num) {
+        saved.splice(saved[i], 1);
+        sessionStorage.setItem("marker", JSON.stringify(saved));
+        document.getElementById("event").value = JSON.stringify(saved);
+      }
+    }
+  }
+
+  function getLocation() {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(successCallback);
+    } else {
+      alert("Geolocation is not supported by this browser.");
+    }
+  };
+
+  //added 
+  var successCallback = function (position) {
+    var x = position.coords.latitude;
+    var y = position.coords.longitude;
+    displayLocation(x, y);
+  };
+
+  function displayLocation(latitude, longitude) {
+    var request = new XMLHttpRequest();
+
+    var method = 'GET';
+    var url = 'https://maps.googleapis.com/maps/api/geocode/json?latlng=' + latitude + ',' + longitude + '&key=' + api;
+    var async = true;
+
+    request.open(method, url, async);
+    request.onreadystatechange = function () {
+      if (request.readyState == 4 && request.status == 200) {
+        var data = JSON.parse(request.responseText);
+        var address = data.results[0];
+        origin = address.geometry.location;
+        document.getElementById("origin-input").value = address.formatted_address;
+
+        sessionStorage.setItem("origin-geo", JSON.stringify(origin));
+        sessionStorage.setItem("origin", address.formatted_address);
+        map.setCenter(new google.maps.LatLng(latitude, longitude));
+      }
+    };
+    request.send();
+  };
+</script>
+
+</html>

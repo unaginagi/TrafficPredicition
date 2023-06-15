@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Traffic Volume by Road Type</title>
+  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+  <script type="text/javascript">
+    google.charts.load('current', {'packages':['corechart']});
+    google.charts.setOnLoadCallback(drawChart);
+
+    function drawChart() {
+        val = {{values | tojson}}
+        traffic = val.map(function (x) { 
+            return parseFloat(x); 
+        });
+        roadtype = {{roadtype | tojson}}
+
+        var info=[];
+        var Header= ['Road Type', 'Average Traffic Volume'];
+        info.push(Header);
+        for (var i = 0; i < roadtype.length; i++) {
+            var temp=[];
+            temp.push(roadtype[i]);
+            temp.push(traffic[i]);
+
+            info.push(temp);
+        }
+        var data = new google.visualization.arrayToDataTable(info);
+        
+
+      var options = {
+        title: 'Traffic Volume by Road Type',
+        hAxis: {title: 'Road Type'},
+        vAxis: {title: 'Traffic Volume'},
+        legend: 'none',
+        height: 600
+      };
+
+      var chart = new google.visualization.ColumnChart(document.getElementById('chart_div'));
+      chart.draw(data, options);
+    }
+  </script>
+</head>
+<body>
+  <h1>Traffic Volume by Road Type</h1>
+  <div id="chart_div" style="width: 100%; height: 80%;"></div>
+</body>
+</html>

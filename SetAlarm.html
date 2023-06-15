@@ -1,0 +1,179 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="/static/New.css">
+    <meta charset="utf-8">
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBdlGwiDrx6NIo_lb0g8oLbTPKl1fr1C90&libraries=places"></script>
+</head>
+<body onload="initAutocomplete()">
+    <h1 style="text-align:center;">Set Your Alarm </h1>
+    <div class="alarm-container">
+        <div id="alarminputs">
+            <form action="{{url_for('alarm')}}" method = "POST" id="email-form" >
+                <label for="schedule_date">Date:</label>
+                <input  type="date" id="schedule_date" name="schedule_date"><br>
+                <label for="schedule_time">Time:</label>
+                <input type="time" id="schedule_time" name="schedule_time"><br>
+                <label for="originInput">Origin:</label>
+                <input type="text" id="originInput" name="originInput"><br>
+                <label for="destinationInput">Destination:</label>
+                <input type="text" id="destinationInput" name="'destinationInput"><br>
+                <button type="button" onclick="setAlarm()">Set Alarm</button>
+                <button type="button" id="cancelButton">Cancel Alarm</button><br>
+                <label for="recipient-input">Recipient:</label>
+                <input type="email" id="recipient-input" name="recipient-input">
+                <button type="submit" name ="send" id ="send" onclick="sendEmail()">Send Email</button><br>
+        
+        
+                <button type="button" onclick="clearForm()">Reset</button>
+                <button type="button" onclick="refresh()">Refresh the page to set next alarm</button>
+            </form>
+        </div>
+    </div>
+    <a onclick="history.back()" class="btn btn-home">Home</a>
+</body>
+
+<script>
+    
+
+    function initAutocomplete() {
+        var originInput = document.getElementById('originInput');
+        var destinationInput = document.getElementById('destinationInput');
+
+        var autocompleteOrigin = new google.maps.places.Autocomplete(originInput);
+        var autocompleteDestination = new google.maps.places.Autocomplete(destinationInput);
+    }
+
+    function setAlarm() {
+        // Get the date and time values from the form
+        var dateInput = document.getElementById("schedule_date").value;
+        var timeInput = document.getElementById("schedule_time").value;
+        var originInput = document.getElementById("originInput").value;
+        var destinationInput = document.getElementById("destinationInput").value;
+
+        // Combine date and time values into a single string and convert it to a Date object
+        var dateTimeString = dateInput + "T" + timeInput;
+        var dateTime = new Date(dateTimeString);
+
+        // Set the alarm to notify the user when the time is reached
+        var alarm = setTimeout(function() {
+            alert("It's time to go!");
+
+            // Get the directions using the Google Maps API
+            var directionsService = new google.maps.DirectionsService();
+            var directionsRenderer = new google.maps.DirectionsRenderer();
+            var map = new google.maps.Map(document.getElementById("map"), {
+                zoom: 14,
+                center: {lat: 37.7749, lng: -122.4194} // Default map center if origin is not specified
+            });
+            directionsRenderer.setMap(map);
+            var request = {
+                origin: originInput,
+                destination: destinationInput,
+                travelMode: 'DRIVING'
+            };
+            directionsService.route(request, function(result, status) {
+                if (status == 'OK') {
+                    directionsRenderer.setDirections(result);
+                }
+            });
+        }, dateTime - new Date());
+
+        // Calculate the time until the scheduled email should be sent
+       var delay = dateTime - new Date();
+  
+       // If the delay is negative, the scheduled time has already passed
+        if (delay < 0) {
+            alert('Scheduled time has already passed.');
+          return;
+        } else {
+          // Display a message to indicate that the alarm has been set
+          alert("Alarm set successfully!")
+        }
+
+        // Cancel the alarm if the user clicks "Cancel"
+        document.getElementById("cancelButton").addEventListener("click", function() {
+            clearTimeout(alarm);
+            alert("Alarm canceled.");
+        });
+    }
+
+    function sendEmail()
+    {
+      var dateInputEmail = document.getElementById("schedule_date").value;
+      var timeInputEmail = document.getElementById("schedule_time").value;
+       // Combine date and time values into a single string and convert it to a Date object
+       var dateTimeStringEmail = dateInputEmail + "T" + timeInputEmail;
+       
+      // Get the form and add a submit event listener
+      var form = document.getElementById('email-form');
+      form.addEventListener('submit', function(event) {
+      // Prevent the form from submitting normally
+      event.preventDefault();
+    
+      // Get the input values
+      var recipientInput = document.getElementById('recipient-input').value;
+      var subjectInput = "REMINDER";
+      var messageInput = "IS TIME TO GO";
+      var dateTimeInput = dateTimeStringEmail;
+      var scheduleTime =  document.getElementById('schedule_time').value;
+      var scheduleDate =  document.getElementById('schedule_date').value;
+    
+      // Convert the date and time input to a JavaScript Date object
+      var dateTime = new Date(dateTimeInput);
+    
+      // Calculate the time until the scheduled email should be sent
+      var delay = dateTime - new Date();
+    
+      // If the delay is negative, the scheduled time has already passed
+          if (delay < 0) {
+              alert('Scheduled time has already passed.');
+            return;
+          }
+    
+    // Set the alarm to trigger when the scheduled time is reached
+    var alarm = setTimeout(function() {
+      // Send the email using XMLHttpRequest
+      var xhr = new XMLHttpRequest();
+      xhr.open('POST', './alarm', true);
+      xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+      xhr.onreadystatechange = function() {
+        if (xhr.readyState == 4 && xhr.status == 200) {
+          alert('Email Sent Successfully!');
+        }
+      };
+      xhr.send('recipient=' + encodeURIComponent(recipientInput) +
+               '&subject=' + encodeURIComponent(subjectInput) +
+               '&message=' + encodeURIComponent(messageInput)+
+               '&schedule_time=' + encodeURIComponent(scheduleTime)+
+               '&schedule_date=' + encodeURIComponent(scheduleDate));
+    }, delay);
+    
+    // Notify the user that the email has been scheduled
+    alert('Email has been scheduled for ' + dateTimeInput + '.');
+  });
+    
+    }
+
+    // Clear the form inputs
+    function clearForm()
+    {
+      document.getElementById("email-form").reset();
+      
+    }
+
+    function refresh()
+    {
+      location.reload();
+    }
+         
+    $("#email-form").submit(function (e) {
+    e.preventDefault();
+    sendEmail();
+    e.currentTarget.submit();
+  });
+
+</script>
+</html>
+

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>CSV File Upload</title>
+  <link rel="stylesheet" href="/static/New.css">
+</head>
+<body>
+  <h1 style="text-align:center;">Upload CSV File</h1>
+  <div class="upload-container">
+    <div id="uploadinputs">
+      <form action="" method="post" enctype="multipart/form-data">
+        <p>Please Upload a CSV File.</p>
+        <p>Ensure that File has the following headers in order:</p>
+        <ol>
+          <li>Time_of_Day</li>
+          <li>Value_of_Time_of_Day</li>
+          <li>Day_of_Week</li>
+          <li>Weather_Condition</li>
+          <li>Road_Name</li>
+          <li>Road_Type</li>
+          <li>Incident</li>
+          <li>Traffic_Volume</li>
+        </ol>
+        <input type="file" name="file">
+        <br><br>
+        <input type="submit" name="submit" value="Upload">
+        <input type="submit" name="submit" value="Clear Data">
+        <a>{{msg}}</a>
+      </form>
+    </div>
+  </div>
+  <div id = "buttons">
+      <div style="font-size:20;color:black"></div><b> Chart </b><br>
+      <a href='{{url_for("byTime")}}'>View Average Traffic Volume by Time of Day</a> <br>
+      <a href='{{url_for("byHour")}}'>View Average Traffic Volume by Hour of Day</a> <br>
+      <a href='{{url_for("byDay")}}'>View Average Traffic Volume by Day of Week</a> <br>
+      <a href='{{url_for("byWeather")}}'>View Average Traffic Volume by Weather Condition</a> <br>  
+      <a href='{{url_for("byRoadName")}}'>View Traffic Volume by Road Name</a> <br>
+      <a href='{{url_for("byRoadType")}}'>View Traffic Volume by Road Type</a> <br>
+      <a href='{{url_for("byIncident")}}'>View Average Traffic Volume by Incident</a> <br>
+  </div>
+  <a onclick="history.back()" class="btn btn-home">Back</a>
+</body>
+<script type="text/javascript">
+  msg = {{msg}}
+  window.onload = function() 
+  {  
+    if (msg != "Added to database")
+    {
+        var elem = document.getElementById('buttons');
+        elem.style.visibility = 'hidden';
+    }
+  }
+</script>
+</html>
