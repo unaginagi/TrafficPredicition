@@ -1,0 +1,388 @@
+*{
+    /* If ubuntu is not supported, fallback to Roboto, same scenario goes for Roboto */
+    font-family: "Ubuntu", sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    color: #1E1E1E;
+}
+
+h1 {
+    position: relative;
+    font-size: 36px;
+}
+
+#header-title {
+    text-align:center;
+}
+
+.search-container {
+    display: flex;
+    align-items: center;
+}
+
+.search-container>div, .search-container>img, .predict-container>div{
+    margin: 8px;
+}
+
+.predict-container{
+    display: flex;
+    align-items: center;
+}
+
+.alarm-container{
+    display: flex;
+    align-items: center;
+}
+
+.upload-container{
+    display: flex;
+    align-items: center;
+}
+.profile-container {
+    display: flex;
+    align-items: center;
+}
+
+.change-container {
+    display: flex;
+    align-items: center;
+}
+
+#search {
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    right: 25px;
+    top: 35%;
+    cursor: pointer;
+}
+
+#searchinputs {
+    position: absolute;
+    top: 95px;
+    right: 1%;
+    padding: 16px;
+    flex-direction: column;
+    align-items: flex-start;
+
+    display: none;
+    max-width: 400px;
+    z-index: 9;
+    background: #3C6E71;
+    box-shadow: 0px 4px 4px 2px rgba(0, 0, 0, 0.25);
+    border-radius: 5px;
+}
+
+#predictinputs{
+    position: absolute;
+    width: 500px;
+    top: 95px;
+    right: 1px;
+    padding: 16px;
+    flex-direction: column;
+    align-items: flex-start;
+
+    display: none;
+    max-width: 400px;
+    z-index: 9;
+    background: #3C6E71;
+    box-shadow: 0px 4px 4px 2px rgba(0, 0, 0, 0.25);
+    border-radius: 5px;
+}
+
+#alarminputs{
+    position: absolute;
+    left: 50%;
+    top: 30%;
+    transform: translate(-50%, -50%);
+    padding: 16px;
+    background: #D9D9D9;
+
+    box-shadow: 0px 4px 4px 2px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+}
+
+#uploadinputs{
+    position: relative;
+    left: 35%;
+    padding: 16px;
+    background: #D9D9D9;
+
+    box-shadow: 0px 4px 4px 2px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+}
+
+#profileinputs{
+    position: absolute;
+    left: 50%;
+    top: 30%;
+    transform: translate(-50%, -50%);
+    padding: 16px;
+    background: #D9D9D9;
+
+    box-shadow: 0px 4px 4px 2px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+}
+
+#changeinputs{
+    position: relative;
+    left: 39%;
+    top: 30%;
+    /* transform: translate(-50%, -50%); */
+    padding: 16px;
+    background: #D9D9D9;
+
+    box-shadow: 0px 4px 4px 2px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+}
+
+#searchinputs>label, #searchinputs>input{
+    margin: 8px 0;
+}
+
+#searchinputs>input{
+    min-width: 350px;
+    height: 42px;
+}
+
+#predictinputs>label, #predictinputs>input{
+    margin: 8px 0;
+}
+
+#predictinputs>input{
+    min-width: 350px;
+    height: 42px;
+}
+
+#alarminputs>form>label{
+    margin: 8px 0;
+    /* position: relative;
+    left: 10px;
+    font-size: 20px; */
+}
+
+#alarminputs>form>input{
+    margin: 8px 0;
+    min-width: 350px;
+    height: 20px;
+}
+
+#uploadinputs>form>label{
+    margin: 8px 0;
+    /* position: relative;
+    left: 10px;
+    font-size: 20px; */
+}
+
+#uploadinputs>form>p{
+    margin: 8px 0;
+    min-width: 350px;
+    height: 20px;
+}
+
+#buttons {
+    position: relative;
+    left: 35%;
+    top: 2%;
+}
+
+.btn{
+    position: static;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    text-decoration: none;
+    min-width: 80px;
+    padding: 8px;
+    cursor: pointer;
+    background-color: #AEC3B0;;
+    transition: all 1s; 
+}
+.btn:hover{
+    color: white;
+    background-color: #1E1E1E;;
+    transition: all 1s;
+}
+
+.btn-alarm {
+    position: absolute;
+    height: 31px;
+    right: 70px;
+    top: 30%;
+}
+
+.btn-predict {
+    position: absolute;
+    height: 31px;
+    right: 180px;
+    top: 30%;
+}
+
+.btn-home {
+    position: absolute;
+    height: 31px;
+    left: 5px;
+    bottom: 5px;
+}
+
+.btn-upload {
+    position: absolute;
+    height: 31px;
+    left: 110px;
+    bottom: 5px;
+}
+
+.btn-chart {
+    position: absolute;
+    height: 31px;
+    left: 225px;
+    bottom: 5px;
+}
+
+.btn-change {
+    position: absolute;
+    height: 31px;
+    left: 46%;
+    top: 25%;
+}
+
+/* .btn-routelist {
+    position: absolute;
+} */
+
+html, body, .map {
+    width: 100%;
+    height: 100%;
+    background-color: #3C6E71;
+}
+
+.map-report {
+    position: absolute;
+    width: 65%;
+    height: 100%;
+    right: 1%;
+    top: 1%;
+    border-radius: 10px;
+}
+
+.chart-report {
+    position: absolute;
+    height: 100%;
+    left: 50%;
+    top: 1%;
+    border-radius: 10px;
+}
+
+.rect {
+    position: absolute;
+    border-radius: 10px;
+}
+
+.rect-search{
+    display: flex;
+    justify-content: space-between;
+    padding: 16px 8px;
+    align-items: center;
+
+    width: 100%;
+    height: 71px;
+    left: 0px;
+    top: -3px;
+    background: #3C6E71;
+}
+
+.rect-predict{
+    width: 100%;
+    height: 104px;
+    left: 0px;
+    top: -3px;
+    background: #3C6E71;
+}
+
+.rect-route{
+    position: absolute;
+    left: 5px;
+    bottom: 5px;
+    padding: 16px;
+    background: #3C6E71;
+    flex-direction: column;
+    align-items: flex-start;
+
+    display: none;
+    z-index: 9;
+    box-shadow: 0px 4px 4px 2px rgba(0, 0, 0, 0.25);
+}
+
+.rect-report {
+    left: 1%;
+    top: 10%;
+    width: 30%;
+    padding-right: 1%;
+    background: #D9D9D9;
+    box-shadow: 0px 4px 4px 2px rgba(0, 0, 0, 0.25);
+}
+
+.report *{
+    position: relative;
+    left: 10px;
+    font-size: 20px;
+}
+
+.report-subheading{
+    font-weight: 400;
+    font-size: 20px;
+}
+
+#route-list {
+    cursor: pointer;
+    list-style-type: none;
+    line-height: 2.5em;
+    font-size: 50%;
+}
+
+@media only screen and (max-width: 600px) {
+    h1 {
+        font-size: 150%;
+    }
+
+    #searchinputs, #predictinputs
+    {
+        width: 100%;
+
+    }
+
+    #buttons {
+        font-size:75%
+    }
+
+    .rect-report {
+        left: 1%;
+        top: 6%;
+        width: 90%;
+        padding-right: 1%;
+        background: #D9D9D9;
+        box-shadow: 0px 4px 4px 2px rgba(0, 0, 0, 0.25);
+    }
+
+    .map-report {
+        position: relative;
+        width: 100%;
+        height: 45%;
+        right: 1%;
+        top: 40%;
+        border-radius: 10px;
+    }
+
+    .chart-report {
+        position: absolute;
+        height: 100%;
+        top: 50%;
+        left:0%;
+        border-radius: 10px;
+    }
+
+    .report *{
+        font-size: 75%;
+    }
+  }

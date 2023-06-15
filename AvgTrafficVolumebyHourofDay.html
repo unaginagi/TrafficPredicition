@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Average Traffic Volume by Hour of Day</title>
+  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+  <script type="text/javascript">
+    google.charts.load('current', {'packages':['corechart']});
+    google.charts.setOnLoadCallback(drawChart);
+
+    function drawChart() {
+        val = {{values | tojson}}
+        traffic = val.map(function (x) { 
+            return parseFloat(x); 
+        });
+        time = {{time | tojson}}
+
+        var info=[];
+        var Header= ['Hour', 'Average Traffic Volume'];
+        info.push(Header);
+        for (var i = 0; i < time.length; i++) {
+            var temp=[];
+            temp.push(time[i]);
+            temp.push(traffic[i]);
+
+            info.push(temp);
+        }
+      var data = google.visualization.arrayToDataTable(info);
+
+      var options = {
+        title: 'Average Traffic Volume by Hour of Day',
+        hAxis: {title: 'Hour of Day'},
+        vAxis: {title: 'Traffic Volume'},
+        legend: 'none'
+      };
+
+      var chart = new google.visualization.LineChart(document.getElementById('chart_div'));
+      chart.draw(data, options);
+    }
+  </script>
+</head>
+<body>
+  <h1>Average Traffic Volume by Hour of Day</h1>
+  <div id="chart_div" style="width: 100%; height: 80%;"></div>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Average Traffic Volume by Incident</title>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+        google.charts.load('current', {'packages':['corechart']});
+        google.charts.setOnLoadCallback(drawChart);
+
+        function drawChart() {
+        val = {{values | tojson}}
+        traffic = val.map(function (x) { 
+            return parseFloat(x); 
+        });
+        incident = {{incident | tojson}}
+
+        var info=[];
+        var Header= ['Incident', 'Average Traffic Volume'];
+        info.push(Header);
+        for (var i = 0; i < incident.length; i++) {
+            var temp=[];
+            temp.push(incident[i]);
+            temp.push(traffic[i]);
+
+            info.push(temp);
+        }
+        var data = google.visualization.arrayToDataTable(info);
+
+        var options = {
+            title: 'Average Traffic Volume by Incident',
+            legend: { position: 'none' },
+        };
+
+            var chart = new google.visualization.PieChart(document.getElementById('chart_div'));
+
+            chart.draw(data, options);
+        }
+    </script>
+</head>
+<body>
+    <div id="chart_div" style="width: 100%; height: 80%;"></div>
+</body>
+</html>
